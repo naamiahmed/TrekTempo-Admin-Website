@@ -1,0 +1,270 @@
+.new-password-fields-child {
+  width: 1106px;
+  height: 707px;
+  position: relative;
+  box-shadow: 41.4px -41.4px 41.43px rgba(165, 165, 165, 0.1) inset,
+    -41.4px 41.4px 41.43px rgba(255, 255, 255, 0.1) inset;
+  backdrop-filter: blur(82.87px);
+  border-radius: var(--br-36xl);
+  background-color: var(--color-gainsboro-200);
+  display: none;
+  max-width: 100%;
+}
+.reset-password {
+  margin: 0;
+  position: relative;
+  font-size: var(--font-size-13xl);
+  line-height: 35px;
+  font-weight: 500;
+  font-family: var(--font-roboto);
+  color: var(--color-black);
+  text-align: left;
+  z-index: 1;
+}
+.reset-password-button {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-11xs) 0 0;
+}
+.icon1 {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.icons8-reset-100-1,
+.question-circle-streamline-ul-icon {
+  position: absolute;
+  top: 71px;
+  left: 22px;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  z-index: 1;
+}
+.icons8-reset-100-1 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.icons8-lock-78-xxhdpi-1 {
+  position: absolute;
+  top: 42px;
+  left: 34px;
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+  z-index: 2;
+}
+.help-icons {
+  height: 163px;
+  flex: 1;
+  position: relative;
+}
+.icon {
+  width: 239px;
+  justify-content: flex-start;
+  padding: 38px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+.confirm-new-password-input,
+.icon,
+.icon-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.icon-wrapper {
+  align-self: stretch;
+  justify-content: center;
+  padding: 0 var(--padding-10xs) 0 0;
+}
+.confirm-new-password-input {
+  width: 196px;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  height: 22px;
+  justify-content: flex-start;
+  padding: 0 var(--padding-9xs);
+  box-sizing: border-box;
+  font-family: var(--font-roboto);
+  font-size: var(--font-size-xl);
+  color: var(--color-dimgray);
+}
+.eye-icon-parent-child {
+  height: 51px;
+  width: 344px;
+  position: relative;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-whitesmoke-200);
+  display: none;
+  max-width: 100%;
+}
+.eyeicon {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 2;
+}
+.eye-icon-parent {
+  align-self: stretch;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-whitesmoke-200);
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: var(--padding-smi) 18px var(--padding-sm);
+  box-sizing: border-box;
+  z-index: 1;
+}
+.eye-icon-parent,
+.new-password-input-confirm,
+.new-password-inputs {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.new-password-input-confirm {
+  width: 344px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-12xs);
+}
+.new-password-inputs {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-9xs) 0 0;
+  box-sizing: border-box;
+}
+.confirm-new-password {
+  width: 214px;
+  border: 0;
+  outline: 0;
+  font-family: var(--font-roboto);
+  font-size: var(--font-size-xl);
+  background-color: transparent;
+  height: 22px;
+  position: relative;
+  letter-spacing: 0.01em;
+  line-height: 108%;
+  color: var(--color-dimgray);
+  text-align: left;
+  display: inline-block;
+  padding: 0;
+  z-index: 1;
+}
+.new-password-fields,
+.rectangle-parent {
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.rectangle-parent {
+  align-self: stretch;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-whitesmoke-200);
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: var(--padding-smi) var(--padding-xl) var(--padding-sm);
+  z-index: 1;
+}
+.new-password-fields {
+  margin: 0;
+  width: 1106px;
+  box-shadow: 41.4px -41.4px 41.43px rgba(165, 165, 165, 0.1) inset,
+    -41.4px 41.4px 41.43px rgba(255, 255, 255, 0.1) inset;
+  backdrop-filter: blur(82.87px);
+  border-radius: var(--br-36xl);
+  background-color: var(--color-gainsboro-200);
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-6xl) var(--padding-261xl) var(--padding-27xl-5);
+  gap: 35.8px;
+}
+.enter-draw,
+.shop {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.enter-draw {
+  flex: 1;
+  background: linear-gradient(89.76deg, #2d8dab, #81c1d5 36.5%, #285a6d);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  justify-content: center;
+  padding: var(--padding-73xl) var(--padding-xl) var(--padding-78xl);
+  max-width: 100%;
+}
+.shop {
+  width: 100%;
+  position: relative;
+  background-color: var(--light-white-color);
+  justify-content: flex-start;
+  line-height: normal;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 1100px) {
+  .new-password-fields {
+    padding-left: var(--padding-121xl);
+    padding-right: var(--padding-121xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1025px) {
+  .reset-password {
+    font-size: var(--font-size-7xl);
+    line-height: 28px;
+  }
+  .enter-draw {
+    padding-top: var(--padding-41xl);
+    padding-bottom: var(--padding-44xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .new-password-fields {
+    gap: 18px;
+    padding: var(--padding-xl) var(--padding-51xl) var(--padding-11xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .reset-password {
+    font-size: var(--font-size-lgi);
+    line-height: 21px;
+  }
+  .confirm-new-password {
+    font-size: var(--font-size-base);
+    line-height: 17px;
+  }
+  .new-password-fields {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .enter-draw {
+    padding-top: var(--padding-20xl);
+    padding-bottom: var(--padding-22xl);
+    box-sizing: border-box;
+  }
+}

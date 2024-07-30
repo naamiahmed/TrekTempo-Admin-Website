@@ -1,0 +1,106 @@
+.image-container,
+.image-container-child {
+  width: 627px;
+  border-radius: var(--br-11xl);
+  background: linear-gradient(-89.82deg, #2f91b0, #206175 64.5%, #143d4a);
+  max-width: 100%;
+}
+.image-container-child {
+  height: 765px;
+  position: relative;
+  display: none;
+}
+.image-container {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 107px var(--padding-xl) 95px 64px;
+  min-width: 627px;
+}
+.content1,
+.home-page,
+.image-container,
+.sign-up1 {
+  display: flex;
+  box-sizing: border-box;
+}
+.content1 {
+  width: 417px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-31xl);
+  min-width: 417px;
+  min-height: 685px;
+  max-width: 100%;
+}
+.home-page,
+.sign-up1 {
+  overflow: hidden;
+  flex-direction: row;
+}
+.sign-up1 {
+  flex: 1;
+  background: linear-gradient(89.76deg, #2d8dab, #81c1d5 36.5%, #285a6d);
+  border: 1px solid var(--color-black);
+  align-items: flex-end;
+  justify-content: center;
+  padding: 65px var(--padding-xl) 66px var(--padding-51xl);
+  row-gap: 20px;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+.home-page {
+  width: 100%;
+  position: relative;
+  background-color: var(--light-white-color);
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-11xs);
+  line-height: normal;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 1125px) {
+  .content1,
+  .image-container {
+    flex: 1;
+  }
+  .sign-up1 {
+    flex-wrap: wrap;
+    padding-left: 35px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1025px) {
+  .image-container {
+    padding-top: var(--padding-51xl);
+    padding-bottom: 62px;
+    box-sizing: border-box;
+    min-width: 100%;
+  }
+  .sign-up1 {
+    padding-top: var(--padding-23xl);
+    padding-bottom: 43px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .content1 {
+    padding-bottom: 32px;
+    box-sizing: border-box;
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .image-container {
+    padding-left: var(--padding-xl);
+    padding-top: var(--padding-26xl);
+    padding-bottom: var(--padding-21xl);
+    box-sizing: border-box;
+  }
+  .sign-up1 {
+    padding-top: 27px;
+    padding-bottom: var(--padding-9xl);
+    box-sizing: border-box;
+  }
+}
