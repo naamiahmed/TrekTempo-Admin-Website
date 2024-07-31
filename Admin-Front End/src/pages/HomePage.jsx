@@ -1,3 +1,4 @@
+/* First page (Sign up) */
 import ImagePlaceholder from "../components/ImagePlaceholder";
 import LoginForm from "../components/LoginForm";
 import "./HomePage.css";

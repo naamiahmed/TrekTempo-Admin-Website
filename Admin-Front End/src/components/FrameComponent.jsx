@@ -1,3 +1,4 @@
+/* This is for Root.jsx page */
 import { useMemo } from "react";
 import PropTypes from "prop-types";
 import "./FrameComponent.css";

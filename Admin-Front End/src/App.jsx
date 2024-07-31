@@ -70,7 +70,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<HomePage />} />  
       <Route path="/19" element={<Shop />} />
       <Route path="/18" element={<Root1 />} />
       <Route path="/17" element={<Root />} />
@@ -80,3 +80,10 @@ function App() {
   );
 }
 export default App;
+ /* / is for first page (Sign up) */
+ /* /19 is for last page (reset password) */
+ /* /18 is for OTP typing page (Sign up) */
+ /* /17 is for Check your mail popup page */
+ /* /12 is for forget password (3rd page) */
+ /* /16 is for Sign in page */
+ 

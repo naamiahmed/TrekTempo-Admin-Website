@@ -1,3 +1,5 @@
+/* last page (Reset password) */
+
 import FrameComponent from "../components/FrameComponent";
 import "./Shop.css";
 

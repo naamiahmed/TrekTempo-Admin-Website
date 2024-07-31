@@ -194,6 +194,7 @@
 }
 .dont-you-have,
 .sign-up {
+  margin-left: 4px;
   position: relative;
   font-size: var(--font-size-sm);
   line-height: 108%;
