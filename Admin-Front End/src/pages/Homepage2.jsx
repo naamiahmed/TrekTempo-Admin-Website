@@ -70,16 +70,7 @@ const Homepage2 = () => {
                   <div className="frame-wrapper1">
                     <div className="frame-parent2">
                       <div className="ellipse-group">
-                        <div className="frame-child13" />
-                        <div className="frame-child14" />
-                        <div className="frame-child15" />
-                        <div className="frame-child16" />
-                        <div className="frame-child17" />
-                        <div className="frame-child18" />
-                        <div className="frame-child19" />
-                        <div className="frame-child20" />
-                        <div className="frame-child21" />
-                        <div className="frame-child22" />
+                        
                       </div>
                       <div className="icons8-google-48-1-wrapper">
                         <img
