@@ -1,3 +1,4 @@
+/* OTP typing page */
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Root1.css";

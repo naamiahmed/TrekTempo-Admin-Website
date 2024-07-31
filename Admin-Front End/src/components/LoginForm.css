@@ -412,7 +412,7 @@
 }
 .sign-in2 {
   font-weight: 500;
-  color: var(--color-skyblue-100);
+  color: white;
   display: inline-block;
   min-width: 45.1px;
   cursor: pointer;

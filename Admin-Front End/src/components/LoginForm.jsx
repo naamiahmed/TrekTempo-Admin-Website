@@ -1,3 +1,4 @@
+/* This is for 1st page (Sign up) */
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -108,7 +109,7 @@ const LoginForm = ({ className = "" }) => {
         <div className="account-options">
           <div className="login-option">
             <div className="login-link">
-              <div className="already-have-an">Already have an account</div>
+              <div className="already-have-an">Already have an account ?</div>
               <div className="sign-in2" onClick={onSignInTextClick}>
                 Sign in
               </div>

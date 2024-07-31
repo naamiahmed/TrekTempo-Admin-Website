@@ -1,3 +1,4 @@
+/* This is for 1st page(Sign up) */
 import PropTypes from "prop-types";
 import "./ImagePlaceholder.css";
 
