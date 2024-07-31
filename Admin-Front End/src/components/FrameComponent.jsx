@@ -18,16 +18,6 @@ const FrameComponent = ({ className = "", propAlignSelf, propWidth }) => {
     >
       <div className="verification-code1">
         <div className="code-input">
-          <div className="input-dots" />
-          <div className="input-dots1" />
-          <div className="input-dots2" />
-          <div className="input-dots3" />
-          <div className="input-dots4" />
-          <div className="input-dots5" />
-          <div className="input-dots6" />
-          <div className="input-dots7" />
-          <div className="input-dots8" />
-          <div className="input-dots9" />
         </div>
       </div>
       <button className="send-button1">

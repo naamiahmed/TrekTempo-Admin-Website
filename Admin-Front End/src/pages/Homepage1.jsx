@@ -48,16 +48,8 @@ const Homepage1 = () => {
             <div className="loading-animation-parent">
               <div className="loading-animation">
                 <div className="loading-dots">
-                  <div className="div" />
-                  <div className="loading-dot" />
-                  <div className="loading-dot1" />
-                  <div className="loading-dot2" />
-                  <div className="loading-dot3" />
-                  <div className="loading-dot4" />
-                  <div className="loading-dot5" />
-                  <div className="x" />
-                  <div className="loading-dot6" />
-                  <div className="loading-dot7" />
+                  
+                  
                 </div>
               </div>
               <button className="send-button">
