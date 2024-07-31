@@ -1,3 +1,4 @@
+/* Check your mail popup page */
 import { useCallback } from "react";
 import FrameComponent from "../components/FrameComponent";
 import { useNavigate } from "react-router-dom";

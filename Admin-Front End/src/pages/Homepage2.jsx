@@ -1,3 +1,4 @@
+/* Sing IN page */
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Homepage2.css";
@@ -53,8 +54,8 @@ const Homepage2 = () => {
                 <div className="or-label">
                   <div className="frame-div">
                     <div className="dont-you-have-any-account-alr-parent">
-                      <div className="dont-you-have">{`Don’t you have any account already? `}</div>
-                      <div className="sign-up">Sign up</div>
+                      <div className="dont-you-have">Don’t you have any account already? <span className="sign-up">Sign up</span></div>
+                      
                     </div>
                     <div className="icons-facebook">
                       <div className="or">Or</div>
