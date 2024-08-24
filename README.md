@@ -27,6 +27,8 @@ This repository contains the code for the admin website of the TrackTempo projec
    5. <a href= "https://github.com/rashidhamnf">Rashidha</a>
 
 
+# method of Running
+
 Note: Please ensure you have installed <code><a href="https://nodejs.org/en/download/">nodejs</a></code>
 
   To preview and run the project on your device:
