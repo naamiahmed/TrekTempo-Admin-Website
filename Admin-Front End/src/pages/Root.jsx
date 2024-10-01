@@ -1,11 +1,15 @@
-/* Check your mail popup page */
+/* mail popup page */
 import { useCallback } from "react";
 import FrameComponent from "../components/FrameComponent";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom"; // import useLocation to get passed state
 import "./Root.css";
 
 const Root = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  // Get the email passed from the previous page
+  const email = location.state?.email || "No email provided";
 
   const onBackgroundClick = useCallback(() => {
     navigate("/18");
@@ -64,7 +68,8 @@ const Root = () => {
                   <div className="email-display-wrapper">
                     <div className="email-display">
                       <div className="email-display-child" />
-                      <div className="travelgmailcom">travel@gmail.com</div>
+                      {/* Display the email passed from the previous page */}
+                      <div className="travelgmailcom">{email}</div>
                     </div>
                   </div>
                 </div>

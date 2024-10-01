@@ -1,14 +1,16 @@
-/* forget password (3rd page) */
-import { useCallback } from "react";
+/* Forgot password page 3rd page */
+import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Homepage1.css";
 
 const Homepage1 = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState(""); // state to store user input
 
-  const onXXXXXXClick = useCallback(() => {
-    navigate("/17");
-  }, [navigate]);
+  const onSendClick = useCallback(() => {
+    // Pass the email when navigating to the next page
+    navigate("/17", { state: { email: email } });
+  }, [navigate, email]);
 
   return (
     <div className="homepage1">
@@ -42,18 +44,24 @@ const Homepage1 = () => {
             <div className="email-input1">
               <div className="email-entry">
                 <div className="email-entry-child" />
-                <div className="travelgmailcom1">travel@gmail.com</div>
+                
+                <input
+                  type="email"
+                  className="travelgmailcom1" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                />
               </div>
             </div>
             <div className="loading-animation-parent">
               <div className="loading-animation">
                 <div className="loading-dots">
-                  
-                  
+                  {/* Any loading animation if necessary */}
                 </div>
               </div>
-              <button className="send-button">
-                <div className="xxxxxx" onClick={onXXXXXXClick} />
+              <button className="send-button" onClick={onSendClick}>
+                <div className="xxxxxx" />
                 <b className="send">SEND</b>
               </button>
             </div>

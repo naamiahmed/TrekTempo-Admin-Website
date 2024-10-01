@@ -1,0 +1,127 @@
+.rectangle-div {
+  width: 90px;
+  height: 957px;
+  position: relative;
+  background-color: var(--color-darkslategray-100);
+  display: none;
+}
+.vaadinlines-list-icon {
+  height: 40px;
+  width: 40px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.vaadinlines-list-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-11xs) 0 var(--padding-6xs);
+}
+.cilsearch-icon,
+.tablerbrand-booking {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.tablerbrand-booking {
+  width: 24px;
+  height: 24px;
+  display: none;
+}
+.cilsearch-icon {
+  height: 42px;
+  width: 42px;
+  z-index: 1;
+}
+.cilsearch-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-11xs) 0 var(--padding-8xs);
+}
+.typcnhome-outline-icon {
+  width: 45px;
+  height: 56px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.mingcutesend-plane-fill-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-11xs) 0 var(--padding-9xs);
+}
+.icon-park-solidtrend {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+  z-index: 1;
+}
+.frame-parent2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: var(--gap-40xl);
+}
+.mask-group-icon {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  z-index: 1;
+}
+.frame-parent1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: var(--gap-65xl);
+}
+.frame-div {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-12xs) 0 0;
+}
+.typcnhome-outline-parent {
+  align-self: stretch;
+  gap: var(--gap-36xl);
+}
+.frame-container,
+.rectangle-parent,
+.typcnhome-outline-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.frame-container {
+  align-self: stretch;
+  gap: var(--gap-56xl);
+}
+.rectangle-parent {
+  width: 90px;
+  margin: 0 !important;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-darkslategray-100);
+  padding: var(--padding-31xl) var(--padding-5xl) var(--padding-259xl)
+    var(--padding-mid);
+  box-sizing: border-box;
+  gap: var(--gap-69xl);
+}
