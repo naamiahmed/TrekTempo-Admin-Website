@@ -39,7 +39,7 @@ const Homepage2 = () => {
                       className="forgot-password1"
                       onClick={onForgotPasswordTextClick}
                     >
-                      Forgot password?
+                      Forgot password
                     </h3>
                   </div>
                 </div>

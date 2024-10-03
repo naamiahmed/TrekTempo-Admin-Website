@@ -259,7 +259,7 @@
   font-size: var(--font-size-sm);
   line-height: 16px;
   font-family: var(--font-lato);
-  color: var(--light-sub-text-color);
+  color: black;
   text-align: left;
   z-index: 1;
 }

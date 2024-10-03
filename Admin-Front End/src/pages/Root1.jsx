@@ -69,10 +69,10 @@ const Root1 = () => {
                   <div className="frame-child10" />
                 </div>
               </div>
-              <button className="verify-button-shape-parent">
+              <button className="verify-button-shape-parent"
+              onClick={onVerifyButtonShapeClick}>
                 <div
                   className="verify-button-shape"
-                  onClick={onVerifyButtonShapeClick}
                 />
                 <b className="verify">Verify</b>
               </button>
