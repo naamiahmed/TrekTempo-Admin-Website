@@ -1,14 +1,14 @@
 /* mail popup page */
 import { useCallback } from "react";
 import FrameComponent from "../components/FrameComponent";
-import { useNavigate, useLocation } from "react-router-dom"; // import useLocation to get passed state
+import { useNavigate, useLocation } from "react-router-dom"; 
 import "./Root.css";
 
 const Root = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Get the email passed from the previous page
+  
   const email = location.state?.email || "No email provided";
 
   const onBackgroundClick = useCallback(() => {

@@ -5,10 +5,9 @@ import "./Homepage1.css";
 
 const Homepage1 = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState(""); // state to store user input
+  const [email, setEmail] = useState(""); 
 
   const onSendClick = useCallback(() => {
-    // Pass the email when navigating to the next page
     navigate("/17", { state: { email: email } });
   }, [navigate, email]);
 
@@ -20,7 +19,7 @@ const Homepage1 = () => {
           <div className="step-three">
             <div className="step-four">
               <div className="step-five">
-                <h2 className="forgot-password3">Forgot password?</h2>
+                <h2 className="forgot-password3">Forgot password</h2>
               </div>
               <div className="icon-frame">
                 <div className="icon4">
