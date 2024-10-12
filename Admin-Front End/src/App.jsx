@@ -12,6 +12,7 @@ import Root from "./pages/Root";
 import Homepage1 from "./pages/Homepage1";
 import Homepage2 from "./pages/Homepage2";
 import Body from "./pages/Body";
+import AddPlaceForm from './pages/AddPlaceForm';
 
 function App() {
   const action = useNavigationType();
@@ -53,7 +54,11 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-        case "/20":
+      case "/20":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/21":
         title = "";
         metaDescription = "";
         break;
@@ -73,6 +78,8 @@ function App() {
     }
   }, [pathname]);
 
+  
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />  
@@ -82,8 +89,10 @@ function App() {
       <Route path="/12" element={<Homepage1 />} />
       <Route path="/16" element={<Homepage2 />} />
       <Route path="/20" element={<Body />} />
+      <Route path="/21" element={<AddPlaceForm />} />
     </Routes>
   );
+
 }
 export default App;
  /* / is for first page (Sign up) */
