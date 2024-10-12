@@ -1,0 +1,22 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .logo-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-icon {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .user-section .icon {
+    margin-left: 20px;
+    height: 30px;
+  }

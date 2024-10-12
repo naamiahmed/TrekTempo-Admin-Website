@@ -1,3 +1,11 @@
+.skip {
+  font-size: var(--font-size-6xl);
+  line-height: 27px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
 .steps-child {
   width: 1106px;
   height: 707px;
