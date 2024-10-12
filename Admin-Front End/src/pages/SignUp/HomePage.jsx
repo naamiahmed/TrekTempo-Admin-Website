@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
-import ImagePlaceholder from "../components/ImagePlaceholder";
-import LoginForm from "../components/LoginForm";
+import ImagePlaceholder from "./ImagePlaceholder";
+import LoginForm from "./LoginForm";
 import "./HomePage.css";
 
 const HomePage = () => {
