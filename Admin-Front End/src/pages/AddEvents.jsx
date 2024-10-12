@@ -8,7 +8,7 @@ const AddEvents = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/21");
+    navigate("/22");
   };
 
   return (

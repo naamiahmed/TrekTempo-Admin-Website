@@ -93,7 +93,7 @@ function App() {
       <Route path="/16" element={<Homepage2 />} />
       <Route path="/20" element={<Body />} />
       <Route path="/21" element={<AddPlaceForm />} />
-      <Route path="/21" element={<DataDisplay />} /> {/* Add this route */}
+      <Route path="/22" element={<DataDisplay />} /> {/* Add this route */}
     </Routes>
   );
 
