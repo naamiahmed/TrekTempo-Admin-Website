@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const EventRoutes = require('./routes/event');
+const placeRoutes = require('./routes/place');
 //const connectDB = require('./config/db');
 require('dotenv').config();
 
@@ -19,6 +20,7 @@ mongoose.connect(process.env.MONGODB_URI)
 
 // Routes
 app.use('/api', EventRoutes);
+app.use('/api', placeRoutes);
 
 
 // Start the server
