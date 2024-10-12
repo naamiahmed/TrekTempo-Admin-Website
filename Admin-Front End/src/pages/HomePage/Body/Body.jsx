@@ -1,7 +1,7 @@
 import React from "react";
-import NavigationBar from "./NavigationBar";
-import AddPlaces from "./AddPlaces";
-import AddEvents from "./AddEvents";
+import NavigationBar from "../NavBar/NavigationBar";
+import AddPlaces from "../Place/AddPlaces";
+import AddEvents from "../Event/AddEvents";
 import "./Body.css";
 
 const Body = () => {

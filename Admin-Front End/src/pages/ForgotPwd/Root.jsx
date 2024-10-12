@@ -1,6 +1,6 @@
 /* mail popup page */
 import { useCallback } from "react";
-import FrameComponent from "../components/FrameComponent";
+import FrameComponent from "./FrameComponent";
 import { useNavigate, useLocation } from "react-router-dom"; 
 import "./Root.css";
 

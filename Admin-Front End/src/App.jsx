@@ -5,14 +5,14 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import Shop from "./pages/Shop";
-import Root1 from "./pages/Root1";
-import Root from "./pages/Root";
-import Homepage1 from "./pages/Homepage1";
-import Homepage2 from "./pages/Homepage2";
-import Body from "./pages/Body";
-import AddPlaceForm from './pages/AddPlaceForm';
+import HomePage from "../src/pages/SignUp/HomePage";
+import Shop from "./pages/ForgotPwd/Shop";
+import Root1 from "./pages/ForgotPwd/Root1";
+import Root from "./pages/ForgotPwd/Root";
+import Homepage1 from "./pages/ForgotPwd/Homepage1";
+import Homepage2 from "./pages/SignIn/Homepage2";
+import Body from "./pages/HomePage/Body/Body";
+import AddPlaceForm from './pages/HomePage/Place/AddPlaceForm/AddPlaceForm';
 import DataDisplay from "./pages/DisplayEvent/DisplayEvent";
 
 
