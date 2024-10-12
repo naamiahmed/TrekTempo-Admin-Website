@@ -1,6 +1,6 @@
 /* last page (Reset password) */
 
-import FrameComponent from "../components/FrameComponent";
+import FrameComponent from "./FrameComponent";
 import "./Shop.css";
 
 const Shop = () => {

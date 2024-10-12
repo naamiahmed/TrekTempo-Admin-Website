@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./AddEvents.css";
-import "./DisplayEvent/DisplayEvent"
+import "../../DisplayEvent/DisplayEvent"
 
 const AddEvents = () => {
 
