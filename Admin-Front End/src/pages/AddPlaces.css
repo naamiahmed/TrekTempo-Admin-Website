@@ -1,0 +1,38 @@
+.Placecard {
+ position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #000000 0%, #4E4F6A 100%) ;
+  width: 529px;
+  height: 321.52px;
+  
+  top: 292px;
+  left: 134px;
+  margin: 20px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 2px 2px 4px 0px rgba(86, 144, 198, 0.11), /* Smaller shadow */
+              6px 6px 30px 0px rgba(125, 153, 180, 0.20);
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.card-button {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.card-button:hover {
+  background-color: #ff3300;
+}
