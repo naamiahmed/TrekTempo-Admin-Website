@@ -11,6 +11,7 @@ import Root1 from "./pages/Root1";
 import Root from "./pages/Root";
 import Homepage1 from "./pages/Homepage1";
 import Homepage2 from "./pages/Homepage2";
+import Body from "./pages/Body";
 
 function App() {
   const action = useNavigationType();
@@ -52,6 +53,10 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+        case "/20":
+        title = "";
+        metaDescription = "";
+        break;
     }
 
     if (title) {
@@ -76,6 +81,7 @@ function App() {
       <Route path="/17" element={<Root />} />
       <Route path="/12" element={<Homepage1 />} />
       <Route path="/16" element={<Homepage2 />} />
+      <Route path="/20" element={<Body />} />
     </Routes>
   );
 }
