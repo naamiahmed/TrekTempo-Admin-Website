@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './DisplayEvent.css';
 
 const DataDisplay = () => {
   const [data, setData] = useState([]);
@@ -7,7 +8,7 @@ const DataDisplay = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/getAllEvents')
+    axios.get('http://localhost:5000/api/getAllEvents')
       .then(response => {
         if (response.data.success) {
           setData(response.data.events);
@@ -22,6 +23,20 @@ const DataDisplay = () => {
       });
   }, []);
 
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:5000/api/deleteEvent/${id}`)
+      .then(response => {
+        if (response.data.success) {
+          setData(data.filter(item => item._id !== id));
+        } else {
+          setError(new Error(response.data.message));
+        }
+      })
+      .catch(error => {
+        setError(error);
+      });
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -32,7 +47,8 @@ const DataDisplay = () => {
 
   return (
     <div>
-      <h1>Data from Backend</h1>
+      <button className="add-button" onClick={() => history.push('/upload')}>+</button>
+      <h1>Event Details</h1>
       <div className="card-container">
         {data.map((item) => (
           <div key={item._id} className="card">
@@ -42,6 +58,7 @@ const DataDisplay = () => {
             <p><strong>District:</strong> {item.district}</p>
             <p><strong>Date:</strong> {new Date(item.date).toLocaleDateString()}</p>
             <p><strong>Phone:</strong> {item.phone}</p>
+            <button className="delete-button" onClick={() => handleDelete(item._id)}>Delete</button>
           </div>
         ))}
       </div>

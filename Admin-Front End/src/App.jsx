@@ -14,6 +14,7 @@ import Homepage2 from "./pages/SignIn/Homepage2";
 import Body from "./pages/HomePage/Body/Body";
 import AddPlaceForm from './pages/HomePage/Place/AddPlaceForm/AddPlaceForm';
 import DataDisplay from "./pages/DisplayEvent/DisplayEvent";
+import UploadForm from "./pages/UploadImage/UploadImage";
 
 
 function App() {
@@ -64,6 +65,14 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/22":
+        title = "";
+        metaDescription = "";
+        break
+      case "/23":
+        title = "";
+        metaDescription = "";
+        break;
         
     }
 
@@ -93,7 +102,9 @@ function App() {
       <Route path="/16" element={<Homepage2 />} />
       <Route path="/20" element={<Body />} />
       <Route path="/21" element={<AddPlaceForm />} />
-      <Route path="/22" element={<DataDisplay />} /> {/* Add this route */}
+      <Route path="/22" element={<DataDisplay />} /> 
+      <Route path="/23" element={<UploadForm />} />
+
     </Routes>
   );
 
@@ -106,4 +117,5 @@ export default App;
  /* /12 is for forget password (3rd page) */
  /* /16 is for Sign in page */
  /*/21 is for DisplayEvent page */
+  /*/22 is for UploadImage page */
  

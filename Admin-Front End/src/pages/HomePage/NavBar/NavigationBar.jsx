@@ -6,7 +6,7 @@ const NavigationBar = () => {
   return (
     <header className="navbar">
       <div className="logo-section">
-        <img src="/Logo.png" alt="Logo" className="logo-icon" />
+        <img src="/AppIcon.png" alt="Logo" className="logo-icon" />
         <h1>TrackTempo</h1>
       </div>
       <div className="user-section">
