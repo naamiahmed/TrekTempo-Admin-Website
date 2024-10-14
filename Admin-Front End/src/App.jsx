@@ -14,7 +14,7 @@ import Homepage2 from "./pages/SignIn/Homepage2";
 import Body from "./pages/HomePage/Body/Body";
 import AddPlaceForm from './pages/HomePage/Place/AddPlaceForm/AddPlaceForm';
 import DataDisplay from "./pages/DisplayEvent/DisplayEvent";
-import UploadForm from "./pages/UploadImage/UploadImage";
+import AcceptedEvent from "./pages/DisplayEvent/AcceptedEvent/AcceptedEvent";
 
 
 function App() {
@@ -98,12 +98,14 @@ function App() {
       <Route path="/19" element={<Shop />} />
       <Route path="/18" element={<Root1 />} />
       <Route path="/17" element={<Root />} />
+
       <Route path="/12" element={<Homepage1 />} />
       <Route path="/16" element={<Homepage2 />} />
       <Route path="/20" element={<Body />} />
       <Route path="/21" element={<AddPlaceForm />} />
       <Route path="/22" element={<DataDisplay />} /> 
-      <Route path="/23" element={<UploadForm />} />
+      <Route path="/23" element={<AcceptedEvent />} />
+
 
     </Routes>
   );
@@ -117,5 +119,5 @@ export default App;
  /* /12 is for forget password (3rd page) */
  /* /16 is for Sign in page */
  /*/21 is for DisplayEvent page */
-  /*/22 is for UploadImage page */
+  /*/23 is for AcceptedEvent page */
  

@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './DisplayEvent.css';
-import { useNavigate } from 'react-router-dom';
+import './AcceptedEvent.css';
 
-const DataDisplay = () => {
+const AcceptedEvent = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/getAllEvents')
+    axios.get('http://localhost:5000/api/getAllAcceptedEvents')
       .then(response => {
         if (response.data.success) {
           setData(response.data.events);
@@ -26,25 +24,9 @@ const DataDisplay = () => {
   }, []);
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/api/deleteEvent/${id}`)
+    axios.delete(`http://localhost:5000/api/deleteAcceptedEvent/${id}`)
       .then(response => {
         if (response.data.success) {
-          setData(data.filter(item => item._id !== id));
-        } else {
-          setError(new Error(response.data.message));
-        }
-      })
-      .catch(error => {
-        setError(error);
-      });
-  };
-
-  const handleAccept = (id) => {
-    axios.post(`http://localhost:5000/api/createAllAcceptedEvents/${id}`)
-      .then(response => {
-        if (response.data.success) {
-          console.log(`Accepted event with id: ${id}`);
-          // Optionally, you can remove the accepted event from the current list
           setData(data.filter(item => item._id !== id));
         } else {
           setError(new Error(response.data.message));
@@ -65,8 +47,7 @@ const DataDisplay = () => {
 
   return (
     <div>
-      <button className="add-button" onClick={() => navigate('/23')}>Next</button>
-      <h1>Event Details</h1>
+      <h1>Accepted Event Details</h1>
       <div className="card-container">
         {data.map((item) => (
           <div key={item._id} className="card">
@@ -78,7 +59,6 @@ const DataDisplay = () => {
             <p><strong>Phone:</strong> {item.phone}</p>
             <div className="card-buttons">
               <button className="delete-button" onClick={() => handleDelete(item._id)}>Delete</button>
-              <button className="accept-button" onClick={() => handleAccept(item._id)}>Accept</button>
             </div>
           </div>
         ))}
@@ -87,4 +67,4 @@ const DataDisplay = () => {
   );
 };
 
-export default DataDisplay;
+export default AcceptedEvent;
