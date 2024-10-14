@@ -27,7 +27,7 @@ const RequestedPlaces = () => {
     }, []);
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5000/api/deletePlace/${id}`)
+        axios.delete(`http://localhost:5000/api/deleteRequestPlaces/${id}`)
           .then(response => {
             if (response.data.success) {
               setPlaces(places.filter(place => place._id !== id));
