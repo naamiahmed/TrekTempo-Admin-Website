@@ -40,7 +40,7 @@ const DataDisplay = () => {
   };
 
   const handleAccept = (id) => {
-    axios.post(`http://localhost:5000/api/createAllAcceptedEvents/${id}`)
+    axios.post(`http://localhost:5000/api//moveEventToAccepted/${id}`)
       .then(response => {
         if (response.data.success) {
           console.log(`Accepted event with id: ${id}`);
