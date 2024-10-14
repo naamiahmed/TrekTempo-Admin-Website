@@ -2,46 +2,100 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center; /* Center align the place cards */
+    justify-content: center;
+    padding: 20px;
 }
 
 .requested-place-card {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 20px;
-    width: 400px; /* Fixed width for consistency */
+    width: 800px; /* Increased width for more space */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: bisque;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align content to the left */
+    flex-direction: row; /* Side by side layout */
+    align-items: flex-start; /* Align items at the start vertically */
+    overflow: hidden;
+}
+
+.requested-place-details {
+    flex: 1; /* Takes available space for details */
+    padding-right: 20px; /* Space between details and images */
 }
 
 .requested-place-images {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column; /* Stack images vertically */
     gap: 10px;
-    justify-content: center; /* Center align the images */
+    justify-content: flex-start; /* Align images to the left */
+}
+
+.image-container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
 }
 
 .requested-place-image {
-    width: 350px; /* Increased width for images */
-    height: 200px; /* Increased height for images */
+    width: 250px; /* Adjust width for image display */
+    height: 150px; /* Adjust height for image display */
     object-fit: cover;
     border-radius: 5px;
 }
 
-.delete-button {
-    margin-top: 10px;
+.save-button {
+    margin-top: 5px;
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    width: auto;
+}
+
+.save-button:hover {
+    background-color: #0056b3;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: auto; /* Ensure buttons are at the bottom */
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.delete-button, .accept-button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #ff4d4d;
     color: white;
     cursor: pointer;
     font-size: 16px;
+    text-align: center;
+}
+
+.delete-button {
+    background-color: #ff4d4d;
 }
 
 .delete-button:hover {
     background-color: #cc0000;
+}
+
+.accept-button {
+    background-color: #4CAF50;
+}
+
+.accept-button:hover {
+    background-color: #45a049;
+}
+
+.hidden {
+    display: none; /* Helper class to hide empty containers */
 }
