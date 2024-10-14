@@ -74,12 +74,22 @@ const RequestedPlaces = () => {
             <div className="requested-places-container">
                 {places.map((place) => (
                     <div key={place._id} className="requested-place-card">
-                        <h3><strong>Place Name:</strong> {place.name}</h3>
-                        <p><strong>District:</strong> {place.district}</p>
-                        <p><strong>City:</strong> {place.city}</p>
-                        <p><strong>Location:</strong> {place.location}</p>
-                        <p><strong>Direction:</strong> <a href={place.direction} target="_blank" rel="noopener noreferrer">{place.direction}</a></p>
-                        <p><strong>Description:</strong> {place.description}</p>
+                        <div className="requested-place-details">
+                            <h3><strong>Place Name:</strong> {place.name}</h3>
+                            <p><strong>District:</strong> {place.district}</p>
+                            <p><strong>City:</strong> {place.city}</p>
+                            <p><strong>Location:</strong> {place.location}</p>
+                            <p><strong>Direction:</strong> 
+                                <a href={place.direction} target="_blank" rel="noopener noreferrer">
+                                    {place.direction}
+                                </a>
+                            </p>
+                            <p><strong>Description:</strong> {place.description}</p>
+                            <div className="button-container">
+                                <button onClick={() => handleDelete(place._id)} className="delete-button">Delete</button>
+                                <button onClick={() => handleAccept(place)} className="accept-button">Accept</button>
+                            </div>
+                        </div>
                         <div className="requested-place-images">
                             {place.images && place.images.map((image, index) => (
                                 <div key={index} className="image-container2">
@@ -95,15 +105,12 @@ const RequestedPlaces = () => {
                                 </div>
                             ))}
                         </div>
-                        <div className="button-container">
-                            <button onClick={() => handleDelete(place._id)} className="delete-button">Delete</button>
-                            <button onClick={() => handleAccept(place)} className="accept-button">Accept</button>
-                        </div>
                     </div>
                 ))}
             </div>
         </div>
     );
+    
 };
 
 export default RequestedPlaces;

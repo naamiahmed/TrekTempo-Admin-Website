@@ -10,26 +10,28 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 20px;
-    width: 400px;
+    width: 800px; /* Increased width for more space */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: bisque;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row; /* Side by side layout */
+    align-items: flex-start; /* Align items at the start vertically */
     overflow: hidden;
-    min-height: 100px; /* Optional: Adjust min height for consistent sizing */
+}
+
+.requested-place-details {
+    flex: 1; /* Takes available space for details */
+    padding-right: 20px; /* Space between details and images */
 }
 
 .requested-place-images {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column; /* Stack images vertically */
     gap: 10px;
-    justify-content: flex-start; /* Align images to the left if available */
-    width: 100%;
+    justify-content: flex-start; /* Align images to the left */
 }
 
 .image-container2 {
-    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -37,9 +39,8 @@
 }
 
 .requested-place-image {
-    width: 100%;
-    max-width: 300px;
-    height: 150px;
+    width: 250px; /* Adjust width for image display */
+    height: 150px; /* Adjust height for image display */
     object-fit: cover;
     border-radius: 5px;
 }
@@ -63,7 +64,7 @@
 .button-container {
     display: flex;
     gap: 10px;
-    margin-top: auto; /* Ensures the buttons stick to the bottom */
+    margin-top: auto; /* Ensure buttons are at the bottom */
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;

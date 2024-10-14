@@ -9,7 +9,7 @@ const AddPlaces = () => {
     <div className="Placecard">
       <img src="/AddPlaceIcon.png" alt="Add Places" className="card-icon" />
       <h2>Requested New Places</h2>
-      <button className="card-button" onClick={() => navigate("/21")}>Skip</button>
+      <button className="card-button" onClick={() => navigate("/21")}>➔</button>
     </div>
   );
 };

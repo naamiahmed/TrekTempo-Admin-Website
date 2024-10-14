@@ -16,6 +16,7 @@ import AddPlaceForm from "./pages/HomePage/Place/AddPlaceForm/AddPlaceForm";
 import DataDisplay from "./pages/DisplayEvent/DisplayEvent";
 import AcceptedEvent from "./pages/DisplayEvent/AcceptedEvent/AcceptedEvent";
 import RequestedPlaces from "./pages/HomePage/Place/RequstedPlaces/RequestedPlaces";
+import AllPlaces from "./pages/HomePage/AddedPlaces/AllPlaces/Allplaces";
 
 function App() {
   const action = useNavigationType();
@@ -77,6 +78,10 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+        case "/25":
+        title = "";
+        metaDescription = "";
+        break;
     }
 
     if (title) {
@@ -107,6 +112,7 @@ function App() {
       <Route path="/22" element={<DataDisplay />} />
       <Route path="/23" element={<AcceptedEvent />} />
       <Route path="/24" element={<AddPlaceForm />} />
+      <Route path="25" element={<AllPlaces />} />
     </Routes>
   );
 }
