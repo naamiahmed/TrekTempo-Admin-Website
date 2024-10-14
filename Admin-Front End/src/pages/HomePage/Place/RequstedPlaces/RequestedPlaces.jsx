@@ -82,7 +82,7 @@ const RequestedPlaces = () => {
                         <p><strong>Description:</strong> {place.description}</p>
                         <div className="requested-place-images">
                             {place.images && place.images.map((image, index) => (
-                                <div key={index} className="image-container">
+                                <div key={index} className="image-container2">
                                     <img 
                                         src={image} 
                                         alt={`${place.name} - Image ${index + 1}`} 
