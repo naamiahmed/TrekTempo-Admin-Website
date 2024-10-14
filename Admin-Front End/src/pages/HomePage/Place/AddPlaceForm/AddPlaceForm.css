@@ -1,65 +1,90 @@
-/* AddPlaceForm.css */
-.add-place-form-container {
-    max-width: 700px;
-    margin: 0 auto;
-    margin-top: 50px;
-    padding: 50px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .add-place-form-container h2 {
-    text-align: center;
-    margin-top: 0%;
-    margin-bottom: 20px;
-    font-size: 40px;
-    color: #020202;
-  }
-  
-  .add-place-form-container form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .add-place-form-container label {
-    font-weight: bold;
-    margin-bottom: 8px;
-    font-size: 19px;
-  }
-  
-  .add-place-form-container input[type="text"],
-  .add-place-form-container textarea,
-  .add-place-form-container input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 18px;
-    
-  }
-  
-  .add-place-form-container textarea {
-    resize: vertical;
-    min-height: 90px;
-  }
-  
-  .add-place-form-container button {
-    padding: 13px;
-    background-color: #1389ef;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 20px;
-    width: 723px;
-    text-align: center;
-    
-  
-  }
-  
-  .add-place-form-container button:hover {
-    background-color: #0f059e;
-  }
-  
+.add-place-form {
+  max-width: 800px; 
+  margin: 0 auto;
+  padding: 40px 20px 30px; 
+  background-color: #f9f9f9; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  text-align: center;
+  color: #333;
+  font-size: 24px; 
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column; 
+  gap: 15px; 
+}
+
+.form-label {
+  font-weight: bold; 
+  color: #555; 
+}
+
+.form-input,
+.form-textarea,
+.image-input {
+  padding: 12px 15px; 
+  border: 1px solid #ccc;
+  border-radius: 4px; 
+  font-size: 16px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box; 
+}
+
+.form-textarea {
+  resize: vertical; 
+  min-height: 100px;
+}
+
+.image-upload-container {
+  margin-bottom: 20px; 
+}
+
+.image-preview {
+  margin-top: 10px;
+}
+
+.image-preview-img {
+  width: 250px; 
+  height: 150px; 
+  object-fit: cover; 
+  border: 1px solid #ccc; 
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.remove-image-button,
+.add-image-button,
+.submit-button {
+  background-color: #28a745; 
+  color: white; 
+  border: none; 
+  padding: 12px 20px; 
+  border-radius: 4px; 
+  cursor: pointer;
+  font-size: 16px; 
+  margin-top: 10px;
+  width: 100%;
+  max-width: 100%; 
+  box-sizing: border-box; 
+}
+
+.remove-image-button:hover,
+.add-image-button:hover,
+.submit-button:hover {
+  background-color: #218838; 
+}
+
+.remove-image-button {
+  background-color: #dc3545; 
+}
+
+.remove-image-button:hover {
+  background-color: #c82333;
+}
