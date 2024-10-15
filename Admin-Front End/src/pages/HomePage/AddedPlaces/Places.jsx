@@ -15,7 +15,7 @@ const Places = () => {
     <div className="Addedplaces">
       <img src="/AddPlace.png" alt="Add Events" className="card-icon" />
       <h2>Available Places</h2>
-      <button className="card-button" onClick={handleClick}>➔</button>
+      <button className="card-button" onClick={() => navigate("/25")}>➔</button>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import NavigationBar from "../NavBar/NavigationBar";
 import AddPlaces from "../Place/AddPlaces";
 import AddEvents from "../Event/AddEvents";
 import Places from "../AddedPlaces/Places";
+import AddNewPlace from "../AddNewPlace/AddNewPlace";
 import "./Body.css";
 
 const Body = () => {
@@ -13,6 +14,7 @@ const Body = () => {
         <AddPlaces />
         <AddEvents />
         <Places />
+        <AddNewPlace />
       </div>
     </div>
   );
