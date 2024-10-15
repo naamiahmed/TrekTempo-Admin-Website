@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AddingForm.css";
 
@@ -14,6 +15,9 @@ const AddingForm = () => {
     image2: null,
     image3: null,
   });
+
+  const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -62,9 +66,17 @@ const AddingForm = () => {
         image2: null,
         image3: null,
       });
+
+      // Show success popup
+      setShowPopup(true);
     } catch (error) {
       console.error("Error submitting the form:", error);
     }
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+    navigate('/20'); // Navigate to the root path
   };
 
   return (
@@ -136,6 +148,7 @@ const AddingForm = () => {
             type="file"
             name="image1"
             onChange={handleChange}
+            required
           />
         </div>
         <div className="form-row">
@@ -156,6 +169,15 @@ const AddingForm = () => {
         </div>
         <button type="submit">Submit</button>
       </form>
+
+      {showPopup && (
+        <div className="popup1">
+          <div className="popup-content1">
+            <h3>Place Details Successfully Added to Database</h3>
+            <button onClick={handleClosePopup}>Okay</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
