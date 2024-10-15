@@ -120,9 +120,9 @@ const LoginForm = ({ className = "" }) => {
             />
           </div>
 
-          <div className="visibility-toggles">
+          {/* <div className="visibility-toggles">
             <img className="eyeicon2" alt="" src="/eyeicon1.svg" />
-          </div>
+          </div> */}
         </div>
 
           {errors.password && <p className="error-text">{errors.password}</p>}
@@ -147,9 +147,9 @@ const LoginForm = ({ className = "" }) => {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
-          <div className="eyeicon-wrapper">
+          {/* <div className="eyeicon-wrapper">
             <img className="eyeicon3" alt="" src="/eyeicon-1.svg" />
-          </div>
+          </div> */}
         </div>
       </div>
       {errors.confirmPassword && (
