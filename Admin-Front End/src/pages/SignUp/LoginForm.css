@@ -372,7 +372,7 @@
   z-index: 1;
 }
 .group-button,
-.submit-button {
+.submit-button-main {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -391,7 +391,7 @@
   white-space: nowrap;
   z-index: 1;
 }
-.submit-button {
+.submit-button-main {
   align-self: stretch;
   justify-content: flex-start;
   padding: 0 var(--padding-6xs) var(--padding-6xs-4) var(--padding-10xs);

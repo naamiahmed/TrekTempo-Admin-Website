@@ -157,7 +157,7 @@ const LoginForm = ({ className = "" }) => {
       )}
 
       {/* Submit Button */}
-      <div className="submit-button">
+      <div className="submit-button-main">
         <button type="submit" className="group-button">
           <div className="frame-child34" />
           <div className="sign-up3">SIGN UP</div>
