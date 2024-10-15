@@ -1,21 +1,27 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./AddPlaceForm.css"; // Import the CSS file
 
 const AddPlaceForm = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { place } = location.state || {}; // Destructure the place object from state
 
   // Initialize form values with the `place` data or empty strings
   const [formData, setFormData] = useState({
+    id: place?._id || "", // Include the id field
     name: place?.name || "",
     district: place?.district || "",
     city: place?.city || "",
     location: place?.location || "",
     direction: place?.direction || "",
     description: place?.description || "",
-    images: place?.images || [], // If images exist, pre-fill them, otherwise empty array
+    images: [], // Initialize images as an empty array
   });
+
+  const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
+  const [error, setError] = useState(""); // State to handle error messages
 
   // Handler for form input changes
   const handleChange = (e) => {
@@ -54,11 +60,63 @@ const AddPlaceForm = () => {
     });
   };
 
-  // Handler for form submission (can be further implemented)
-  const handleSubmit = (e) => {
+  // Handler for form submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Submit the formData to your backend here, which will include file uploads
-    console.log("Form Data Submitted: ", formData);
+
+    // Check if at least one image is provided
+    if (formData.images.length === 0 || formData.images.every(image => image === null)) {
+      setError("At least one image is required.");
+      return;
+    }
+
+    const formDataToSend = new FormData();
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("district", formData.district);
+    formDataToSend.append("city", formData.city);
+    formDataToSend.append("location", formData.location);
+    formDataToSend.append("direction", formData.direction);
+    formDataToSend.append("description", formData.description);
+
+    formData.images.forEach((image, index) => {
+      if (image instanceof File) {
+        formDataToSend.append("images", image); // Append new image file
+      }
+    });
+
+    try {
+      const response = await axios.post("http://localhost:5000/api/createPlace", formDataToSend, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log("Form submitted successfully:", response.data);
+
+      // Delete the place from the database using the id
+      await axios.delete(`http://localhost:5000/api/deleteRequestPlaces/${formData.id}`);
+
+      // Optionally reset the form after submission
+      setFormData({
+        id: "",
+        name: "",
+        district: "",
+        city: "",
+        location: "",
+        direction: "",
+        description: "",
+        images: [],
+      });
+
+      // Show success popup
+      setShowPopup(true);
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+    }
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+    navigate('/20'); // Navigate to the root path
   };
 
   return (
@@ -73,6 +131,7 @@ const AddPlaceForm = () => {
             value={formData.name}
             onChange={handleChange}
             className="form-input"
+            required
           />
         </label>
         <label className="form-label">
@@ -83,6 +142,7 @@ const AddPlaceForm = () => {
             value={formData.district}
             onChange={handleChange}
             className="form-input"
+            required
           />
         </label>
         <label className="form-label">
@@ -93,6 +153,7 @@ const AddPlaceForm = () => {
             value={formData.city}
             onChange={handleChange}
             className="form-input"
+            required
           />
         </label>
         <label className="form-label">
@@ -103,6 +164,7 @@ const AddPlaceForm = () => {
             value={formData.location}
             onChange={handleChange}
             className="form-input"
+            required
           />
         </label>
         <label className="form-label">
@@ -113,6 +175,7 @@ const AddPlaceForm = () => {
             value={formData.direction}
             onChange={handleChange}
             className="form-input"
+            required
           />
         </label>
         <label className="form-label">
@@ -122,6 +185,7 @@ const AddPlaceForm = () => {
             value={formData.description}
             onChange={handleChange}
             className="form-textarea"
+            required
           />
         </label>
 
@@ -135,18 +199,7 @@ const AddPlaceForm = () => {
               onChange={(e) => handleImageChange(e, index)}
               className="image-input"
             />
-            {typeof image === "string" ? (
-              <div className="image-preview">
-                <p>
-                  Image {index + 1}: {image}
-                </p>
-                <img
-                  src={image} // Directly use the URL for images
-                  alt={`Preview ${index + 1}`}
-                  className="image-preview-img"
-                />
-              </div>
-            ) : image instanceof File ? (
+            {image instanceof File && (
               <div className="image-preview">
                 <p>
                   Image {index + 1}: {image.name}
@@ -157,7 +210,7 @@ const AddPlaceForm = () => {
                   className="image-preview-img"
                 />
               </div>
-            ) : null}
+            )}
             <button
               type="button"
               onClick={() => removeImageInput(index)}
@@ -181,6 +234,17 @@ const AddPlaceForm = () => {
           Submit
         </button>
       </form>
+
+      {error && <p className="error-message">{error}</p>}
+
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <h3>Place Details Successfully Added to Database</h3>
+            <button onClick={handleClosePopup}>Okay</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -8,7 +8,7 @@ const AddNewPlace = () => {
   return (
     <div className="AddNewPlace">
       <img src="/AddPlace.png" alt="Add Events" className="card-icon" />
-      <h2>Available Places</h2>
+      <h2>Add New Places</h2>
       {/* Use navigate function when button is clicked */}
       <button className="card-button" onClick={() => navigate("/26")}>➔</button>
     </div>
