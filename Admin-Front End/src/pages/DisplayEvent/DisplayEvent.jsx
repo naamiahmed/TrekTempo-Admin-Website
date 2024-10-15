@@ -71,13 +71,13 @@ const DataDisplay = () => {
 
   return (
     <div>
-      <button className="add-button" onClick={() => navigate("/23")}>
+      <button className="add-button1" onClick={() => navigate("/23")}>
         Next
       </button>
       <h1>Event Details</h1>
-      <div className="card-container">
+      <div className="card-container1">
         {data.map((item) => (
-          <div key={item._id} className="card">
+          <div key={item._id} className="card1">
             <h2>{item.title}</h2>
             <p>
               <strong>Description:</strong> {item.description}
@@ -107,7 +107,7 @@ const DataDisplay = () => {
                 className="event-image"
               />
             </div>
-            <div className="card-buttons">
+            <div className="card-buttons1">
               <button
                 className="delete-button"
                 onClick={() => handleDelete(item._id)}
