@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./AddPlaceForm.css"; // Import the CSS file
+import "./AddPlaceForm.css";
 
 const AddPlaceForm = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { place } = location.state || {}; // Destructure the place object from state
+  const { place } = location.state || {};
 
   // Initialize form values with the `place` data or empty strings
   const [formData, setFormData] = useState({
-    id: place?._id || "", // Include the id field
+    id: place?._id || "",
     name: place?.name || "",
     district: place?.district || "",
     city: place?.city || "",
@@ -20,8 +20,8 @@ const AddPlaceForm = () => {
     images: [], // Initialize images as an empty array
   });
 
-  const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
-  const [error, setError] = useState(""); // State to handle error messages
+  const [showPopup, setShowPopup] = useState(false); 
+  const [error, setError] = useState("");
 
   // Handler for form input changes
   const handleChange = (e) => {

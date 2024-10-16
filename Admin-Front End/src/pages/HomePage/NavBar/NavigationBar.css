@@ -1,8 +1,8 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 10px 20px;
-    background-color: rgb(35, 124, 207);
+    padding: 5px 50px;
+    background-color: rgb(33, 150, 243);
     border-bottom: 1px solid #ddd;
   }
   
@@ -20,3 +20,8 @@
     margin-left: 20px;
     height: 30px;
   }
+
+.App-name {
+  color: white;
+  font-size: 50px;
+}

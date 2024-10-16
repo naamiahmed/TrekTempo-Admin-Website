@@ -7,7 +7,7 @@ const NavigationBar = () => {
     <header className="navbar">
       <div className="logo-section">
         <img src="/AppIcon.png" alt="Logo" className="logo-icon" />
-        <h1>TrackTempo</h1>
+        <h1 className="App-name">TrackTempo</h1>
       </div>
       <div className="user-section">
         <img src="/Notifications.png" alt="Notifications" className="icon" />
