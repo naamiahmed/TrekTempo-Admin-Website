@@ -59,8 +59,8 @@
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 50%;
-  width: 50px;
+  border-radius: 10%;
+  width: 150px;
   height: 50px;
   font-size: 28px;
   cursor: pointer;
