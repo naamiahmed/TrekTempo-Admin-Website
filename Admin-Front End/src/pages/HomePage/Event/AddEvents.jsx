@@ -13,8 +13,8 @@ const AddEvents = () => {
 
   return (
     <div className="Eventcard">
-      <img src="/AddEventIcon.png" alt="Add Events" className="card-icon" />
-      <h2>Add Events</h2>
+      <img src="/AddEventIcon.png" alt="Requested Events" className="card-icon" />
+      <h2>Requested Events</h2>
       <button className="card-button" onClick={handleClick}>➔</button>
     </div>
   );
