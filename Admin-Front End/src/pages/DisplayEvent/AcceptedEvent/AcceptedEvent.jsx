@@ -51,12 +51,16 @@ const AcceptedEvent = () => {
       <div className="card-container">
         {data.map((item) => (
           <div key={item._id} className="card">
-            <h2>{item.name}</h2>
-            <p>{item.description}</p>
-            <p><strong>Location:</strong> {item.location}</p>
+            <h2>{item.title}</h2>
+            <p><strong>Description:</strong> {item.description}</p>
+            <p><strong>Phone Number:</strong> {item.phone}</p>
             <p><strong>District:</strong> {item.district}</p>
+            <p><strong>Place Name:</strong> {item.place}</p>
+            <p><strong>Location Link:</strong> <a href={item.location} target="_blank" rel="noopener noreferrer">{item.location}</a></p>
             <p><strong>Date:</strong> {new Date(item.date).toLocaleDateString()}</p>
-            <p><strong>Phone:</strong> {item.phone}</p>
+            <div className="image-container1">
+              <img src={item.imageUrl} alt={item.title} className="event-image" />
+            </div>
             <div className="card-buttons">
               <button className="delete-button" onClick={() => handleDelete(item._id)}>Delete</button>
             </div>

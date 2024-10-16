@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './DisplayEvent.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "./DisplayEvent.css";
+import { useNavigate } from "react-router-dom";
 
 const DataDisplay = () => {
   const [data, setData] = useState([]);
@@ -10,8 +10,13 @@ const DataDisplay = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/getAllEvents')
-      .then(response => {
+    getAllEvents();
+  }, []);
+
+  const getAllEvents = async () => {
+    axios
+      .get("http://localhost:5000/api/getAllEvents")
+      .then((response) => {
         if (response.data.success) {
           setData(response.data.events);
         } else {
@@ -19,38 +24,39 @@ const DataDisplay = () => {
         }
         setLoading(false);
       })
-      .catch(error => {
+      .catch((error) => {
         setError(error);
         setLoading(false);
       });
-  }, []);
+  };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/api/deleteEvent/${id}`)
-      .then(response => {
+    axios
+      .delete(`http://localhost:5000/api/deleteEvent/${id}`)
+      .then((response) => {
         if (response.data.success) {
-          setData(data.filter(item => item._id !== id));
+          setData(data.filter((item) => item._id !== id));
         } else {
           setError(new Error(response.data.message));
         }
       })
-      .catch(error => {
+      .catch((error) => {
         setError(error);
       });
   };
 
   const handleAccept = (id) => {
-    axios.post(`http://localhost:5000/api//moveEventToAccepted/${id}`)
-      .then(response => {
-        if (response.data.success) {
-          console.log(`Accepted event with id: ${id}`);
-          // Optionally, you can remove the accepted event from the current list
-          setData(data.filter(item => item._id !== id));
+    axios
+      .post(`http://localhost:5000/api/moveEventToAccepted/${id}`)
+      .then((response) => {
+        if (response.status == "200") {
+          // console.log(`Accepted event with id: ${id}`);
+         getAllEvents();
         } else {
           setError(new Error(response.data.message));
         }
       })
-      .catch(error => {
+      .catch((error) => {
         setError(error);
       });
   };
@@ -65,20 +71,55 @@ const DataDisplay = () => {
 
   return (
     <div>
-      <button className="add-button" onClick={() => navigate('/23')}>Next</button>
+      <button className="add-button1" onClick={() => navigate("/23")}>
+        Next
+      </button>
       <h1>Event Details</h1>
-      <div className="card-container">
+      <div className="card-container1">
         {data.map((item) => (
-          <div key={item._id} className="card">
-            <h2>{item.name}</h2>
-            <p>{item.description}</p>
-            <p><strong>Location:</strong> {item.location}</p>
-            <p><strong>District:</strong> {item.district}</p>
-            <p><strong>Date:</strong> {new Date(item.date).toLocaleDateString()}</p>
-            <p><strong>Phone:</strong> {item.phone}</p>
-            <div className="card-buttons">
-              <button className="delete-button" onClick={() => handleDelete(item._id)}>Delete</button>
-              <button className="accept-button" onClick={() => handleAccept(item._id)}>Accept</button>
+          <div key={item._id} className="card1">
+            <h2>{item.title}</h2>
+            <p>
+              <strong>Description:</strong> {item.description}
+            </p>
+            <p>
+              <strong>Phone Number:</strong> {item.phone}
+            </p>
+            <p>
+              <strong>District:</strong> {item.district}
+            </p>
+            <p>
+              <strong>Place Name:</strong> {item.place}
+            </p>
+            <p>
+              <strong>Location Link:</strong>{" "}
+              <a href={item.location} target="_blank" rel="noopener noreferrer">
+                {item.location}
+              </a>
+            </p>
+            <p>
+              <strong>Date:</strong> {new Date(item.date).toLocaleDateString()}
+            </p>
+            <div className="image-container1">
+              <img
+                src={item.imageUrl}
+                alt={item.title}
+                className="event-image"
+              />
+            </div>
+            <div className="card-buttons1">
+              <button
+                className="delete-button"
+                onClick={() => handleDelete(item._id)}
+              >
+                Delete
+              </button>
+              <button
+                className="accept-button"
+                onClick={() => handleAccept(item._id)}
+              >
+                Accept
+              </button>
             </div>
           </div>
         ))}
