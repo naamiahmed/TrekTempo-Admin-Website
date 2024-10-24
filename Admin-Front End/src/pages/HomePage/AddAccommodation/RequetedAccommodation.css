@@ -1,4 +1,4 @@
-.AddNewPlace {
+.RequetedAccommodation {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -9,7 +9,7 @@
     height: 321.52px;
     
     top: 650px;
-    left: 1150px;
+    left: 475px;
     margin: 20px;
     border-radius: 14px;
     text-align: center;
