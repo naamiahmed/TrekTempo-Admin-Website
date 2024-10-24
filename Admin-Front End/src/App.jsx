@@ -83,7 +83,7 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-        case "/25":
+        case "/26":
         title = "";
         metaDescription = "";
         break;
