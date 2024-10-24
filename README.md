@@ -22,7 +22,7 @@ This repository contains the code for the admin website of the TrackTempo projec
 ## Team Members
    01. <a href= "https://github.com/naamiahmed">Naami Ahmed </a>(Project Lead)
    2. <a  href="https://github.com/Raashi-d"> Raashid </a>
-   3. <a href= "https://github.com/sandushi13583">Sandhushi </a>
+   3. <a href= "https://github.com/sandushi13583">Sandushi </a>
    4. <a href= "https://github.com/Fathir2001">Fathir</a>
    5. <a href= "https://github.com/rashidhamnf">Rashidha</a>
 
