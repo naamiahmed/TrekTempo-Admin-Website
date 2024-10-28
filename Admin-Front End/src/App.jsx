@@ -84,10 +84,6 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-        case "/25":
-        title = "";
-        metaDescription = "";
-        break;
         case "/26":
         title = "";
         metaDescription = "";
@@ -121,7 +117,7 @@ function App() {
       <Route path="/22" element={<DataDisplay />} />
       <Route path="/23" element={<AcceptedEvent />} />
       <Route path="/24" element={<AddPlaceForm />} />
-      <Route path="25" element={<AllPlaces />} />
+      <Route path="/25" element={<AllPlaces />} />
       <Route path="/26" element={<AddingForm />} />
       <Route path="/27" element={<DisplayAccommodation />} />
     </Routes>
