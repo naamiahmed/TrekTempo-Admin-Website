@@ -18,6 +18,7 @@ import AcceptedEvent from "./pages/DisplayEvent/AcceptedEvent/AcceptedEvent";
 import RequestedPlaces from "./pages/HomePage/Place/RequstedPlaces/RequestedPlaces";
 import AllPlaces from "./pages/HomePage/AddedPlaces/AllPlaces/Allplaces";
 import AddingForm from "./pages/HomePage/AddNewPlace/AddingForm/AddingForm";
+import DisplayAccommodation from "./pages/HomePage/Accommodation/ReqAccommodation";
 
 function App() {
   const action = useNavigationType();
@@ -87,6 +88,9 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+        case "/26":
+        title = "";
+        metaDescription = "";
     }
 
     if (title) {
@@ -119,6 +123,7 @@ function App() {
       <Route path="/24" element={<AddPlaceForm />} />
       <Route path="25" element={<AllPlaces />} />
       <Route path="/26" element={<AddingForm />} />
+      <Route path="/27" element={<DisplayAccommodation />} />
     </Routes>
   );
 }
@@ -131,3 +136,8 @@ export default App;
 /* /16 is for Sign in page */
 /*/21 is for DisplayEvent page */
 /*/23 is for AcceptedEvent page */
+/*/24 is for AddPlaceForm page */
+/*/25 is for AllPlaces page */
+/*/26 is for AddingForm page */   
+/*/27 is for DisplayAccommodation page */
+
