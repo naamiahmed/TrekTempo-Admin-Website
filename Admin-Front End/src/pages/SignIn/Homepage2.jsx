@@ -1,5 +1,4 @@
-/* Sing IN page */
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Homepage2.css";
 
@@ -9,6 +8,31 @@ const Homepage2 = () => {
   const onForgotPasswordTextClick = useCallback(() => {
     navigate("/12");
   }, [navigate]);
+
+  useEffect(() => {
+    const setZoomLevel = () => {
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+      let zoomLevel = 1;
+
+      if (screenWidth < 1200 || screenHeight < 800) {
+        zoomLevel = 0.67; // Adjust this value as needed
+      } else if (screenWidth < 1600 || screenHeight < 900) {
+        zoomLevel = 0.8; // Adjust this value as needed
+      } else {
+        zoomLevel = 1; // Default zoom level
+      }
+
+      document.body.style.zoom = zoomLevel;
+    };
+
+    setZoomLevel();
+    window.addEventListener("resize", setZoomLevel);
+
+    return () => {
+      window.removeEventListener("resize", setZoomLevel);
+    };
+  }, []);
 
   return (
     <div className="homepage">
@@ -33,7 +57,7 @@ const Homepage2 = () => {
                   <div className="email-input">
                     <h2 className="password">PASSWORD</h2>
                   </div>
-                  <div className="login-button" />
+                  <input className="rectangle-input login-button" type="password" />
                   <div className="account-question">
                     <h3
                       className="forgot-password1"
@@ -54,11 +78,10 @@ const Homepage2 = () => {
                 <div className="or-label">
                   <div className="frame-div">
                     <div className="dont-you-have-any-account-alr-parent">
-                      <div className="dont-you-have">Don’t you have any account already? <span className="sign-up">Sign up</span></div>
-                      
+                      <div className="dont-you-have">Don’t you have any account already? <span className="sign-up">HELP</span></div>
                     </div>
                     <div className="icons-facebook">
-                      <div className="or">Or</div>
+                      {/* <div className="or">Or</div> */}
                     </div>
                   </div>
                 </div>
@@ -70,9 +93,8 @@ const Homepage2 = () => {
                   <div className="frame-wrapper1">
                     <div className="frame-parent2">
                       <div className="ellipse-group">
-                        
                       </div>
-                      <div className="icons8-google-48-1-wrapper">
+                      {/* <div className="icons8-google-48-1-wrapper">
                         <img
                           className="icons8-google-48-1"
                           loading="lazy"
@@ -85,7 +107,7 @@ const Homepage2 = () => {
                         loading="lazy"
                         alt=""
                         src="/icons8facebook48-1@2x.png"
-                      />
+                      /> */}
                     </div>
                   </div>
                 </div>
