@@ -1,13 +1,46 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Body from "../HomePage/Body/Body"; // Import the Body component
 import "./Homepage2.css";
 
 const Homepage2 = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const onForgotPasswordTextClick = useCallback(() => {
     navigate("/12");
   }, [navigate]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!email || !password) {
+      setError("Both email and password are required");
+      return;
+    }
+  
+    try {
+      console.log("Sending sign-in request with:", { email, password });
+      const response = await axios.post("http://localhost:5000/api/signin/", { email, password });
+      console.log("Received response:", response);
+  
+      if (response.status === 200 && response.data) {
+        // Handle successful login, e.g., save token, redirect, etc.
+        console.log("Login successful:", response.data);
+        navigate("/20"); // Navigate to the Body component
+      } else {
+        console.error("Unexpected response:", response);
+        setError("Invalid credentials");
+      }
+    } catch (err) {
+      console.error("Error during sign-in:", err);
+      setError("Invalid credentials");
+    }
+  };
 
   useEffect(() => {
     const setZoomLevel = () => {
@@ -39,7 +72,7 @@ const Homepage2 = () => {
       <main className="header">
         <section className="frame-group">
           <div className="frame-wrapper">
-            <form className="rectangle-container">
+            <form className="rectangle-container" onSubmit={handleSubmit}>
               <div className="frame-child11" />
               <div className="sign-in-wrapper">
                 <h1 className="sign-in">SIGN IN</h1>
@@ -49,7 +82,12 @@ const Homepage2 = () => {
                   <div className="email-input">
                     <h2 className="email">EMAIL</h2>
                   </div>
-                  <input className="rectangle-input" type="text" />
+                  <input
+                    className="rectangle-input"
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </div>
               </div>
               <div className="password-input">
@@ -57,7 +95,12 @@ const Homepage2 = () => {
                   <div className="email-input">
                     <h2 className="password">PASSWORD</h2>
                   </div>
-                  <input className="rectangle-input login-button" type="password" />
+                  <input
+                    className="rectangle-input login-button"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
                   <div className="account-question">
                     <h3
                       className="forgot-password1"
@@ -68,8 +111,9 @@ const Homepage2 = () => {
                   </div>
                 </div>
               </div>
+              {error && <div className="error">{error}</div>}
               <div className="separator">
-                <button className="sign-in-btn">
+                <button className="sign-in-btn" type="submit">
                   <div className="sign-in-btn-child" />
                   <b className="sign-in1">SIGN IN</b>
                 </button>
@@ -78,7 +122,9 @@ const Homepage2 = () => {
                 <div className="or-label">
                   <div className="frame-div">
                     <div className="dont-you-have-any-account-alr-parent">
-                      <div className="dont-you-have">Don’t you have any account already? <span className="sign-up">HELP</span></div>
+                      <div className="dont-you-have">
+                        Don’t you have any account already? <span className="sign-up">HELP</span>
+                      </div>
                     </div>
                     <div className="icons-facebook">
                       {/* <div className="or">Or</div> */}
@@ -92,8 +138,7 @@ const Homepage2 = () => {
                   </div>
                   <div className="frame-wrapper1">
                     <div className="frame-parent2">
-                      <div className="ellipse-group">
-                      </div>
+                      <div className="ellipse-group"></div>
                       {/* <div className="icons8-google-48-1-wrapper">
                         <img
                           className="icons8-google-48-1"
