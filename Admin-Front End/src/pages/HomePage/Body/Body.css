@@ -1,3 +1,8 @@
+body{
+  /* background-image: url('/mirissa-1 1.png'); */
+  background: linear-gradient(89.76deg, #bfe4f0, #96d9ed 36.5%, #4b7e93);
+}
+
 .Body {
     display: flex;
     justify-content: space-between;
@@ -64,8 +69,7 @@
 .Sidebar {
   width: 20%;
   min-width: 200px; /* Set a minimum width */
-  background: 
-  linear-gradient(-89.82deg, #2f91b0, #206175 64.5%, #143d4a);
+  background: linear-gradient(-89.82deg, #2f91b0, #206175 64.5%, #143d4a);
   color: white;
   display: flex;
   flex-direction: column;
@@ -114,7 +118,7 @@
   top: 6%;
   left: 30%;
   transform: translate(-50%, -50%);
-  background-color: white;
+  background: linear-gradient(-89.82deg, #0e617a, #30a1c4 64.5%, #6abdd6);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
