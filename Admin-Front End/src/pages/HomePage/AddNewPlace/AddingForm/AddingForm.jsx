@@ -16,7 +16,8 @@ const AddingForm = () => {
     image3: null,
   });
 
-  const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
+  const [errors, setErrors] = useState({});
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -24,7 +25,7 @@ const AddingForm = () => {
     if (files) {
       setFormData((prevFormData) => ({
         ...prevFormData,
-        [name]: files[0], // Only store the first selected file
+        [name]: files[0],
       }));
     } else {
       setFormData((prevFormData) => ({
@@ -32,10 +33,45 @@ const AddingForm = () => {
         [name]: value,
       }));
     }
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: "" })); // Clear error when user starts typing
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    
+    // Place Name, District, City, Location validations
+    if (!formData.placeName) newErrors.placeName = "Place Name cannot be empty";
+    if (!formData.district) {
+      newErrors.district = "District cannot be empty";
+    } else if (!/^[A-Za-z\s]+$/.test(formData.district)) {
+      newErrors.district = "District should contain only letters";
+    }
+    
+    if (!formData.city) {
+      newErrors.city = "City cannot be empty";
+    } else if (!/^[A-Za-z\s-]+$/.test(formData.city)) {
+      newErrors.city = "City should contain only letters";
+    }
+    
+    if (!formData.location) newErrors.location = "Location cannot be empty";
+
+    // Check for valid image file format
+    ["image1", "image2", "image3"].forEach((imageField) => {
+      const file = formData[imageField];
+      if (file && !["image/png", "image/jpeg", "image/jpg"].includes(file.type)) {
+        newErrors[imageField] = "Invalid file format for image upload";
+      }
+    });
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validateForm()) return;
+
     const formDataToSend = new FormData();
     formDataToSend.append("name", formData.placeName);
     formDataToSend.append("district", formData.district);
@@ -54,7 +90,7 @@ const AddingForm = () => {
         },
       });
       console.log("Form submitted successfully:", response.data);
-      // Optionally reset the form after submission
+
       setFormData({
         placeName: "",
         district: "",
@@ -67,7 +103,6 @@ const AddingForm = () => {
         image3: null,
       });
 
-      // Show success popup
       setShowPopup(true);
     } catch (error) {
       console.error("Error submitting the form:", error);
@@ -76,7 +111,7 @@ const AddingForm = () => {
 
   const handleClosePopup = () => {
     setShowPopup(false);
-    navigate('/20'); // Navigate to the root path
+    navigate('/20');
   };
 
   return (
@@ -92,6 +127,7 @@ const AddingForm = () => {
             onChange={handleChange}
             required
           />
+          {errors.placeName && <p className="error-message">{errors.placeName}</p>}
         </div>
         <div className="form-row">
           <label>District:</label>
@@ -102,6 +138,7 @@ const AddingForm = () => {
             onChange={handleChange}
             required
           />
+          {errors.district && <p className="error-message">{errors.district}</p>}
         </div>
         <div className="form-row">
           <label>City:</label>
@@ -112,6 +149,7 @@ const AddingForm = () => {
             onChange={handleChange}
             required
           />
+          {errors.city && <p className="error-message">{errors.city}</p>}
         </div>
         <div className="form-row">
           <label>Location:</label>
@@ -122,6 +160,7 @@ const AddingForm = () => {
             onChange={handleChange}
             required
           />
+          {errors.location && <p className="error-message">{errors.location}</p>}
         </div>
         <div className="form-row">
           <label>Direction:</label>
@@ -141,6 +180,7 @@ const AddingForm = () => {
             onChange={handleChange}
             required
           />
+          {errors.description && <p className="error-message">{errors.description}</p>}
         </div>
         <div className="form-row">
           <label>Image 1:</label>
@@ -150,6 +190,7 @@ const AddingForm = () => {
             onChange={handleChange}
             required
           />
+          {errors.image1 && <p className="error-message">{errors.image1}</p>}
         </div>
         <div className="form-row">
           <label>Image 2:</label>
@@ -158,6 +199,7 @@ const AddingForm = () => {
             name="image2"
             onChange={handleChange}
           />
+          {errors.image2 && <p className="error-message">{errors.image2}</p>}
         </div>
         <div className="form-row">
           <label>Image 3:</label>
@@ -166,6 +208,7 @@ const AddingForm = () => {
             name="image3"
             onChange={handleChange}
           />
+          {errors.image3 && <p className="error-message">{errors.image3}</p>}
         </div>
         <button type="submit">Submit</button>
       </form>
