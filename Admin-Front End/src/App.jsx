@@ -84,10 +84,6 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-        case "/25":
-        title = "";
-        metaDescription = "";
-        break;
         case "/26":
         title = "";
         metaDescription = "";
