@@ -124,6 +124,7 @@ const Body = () => {
   return (
     <Fade>
       <div className="Body">
+      <Sidebar />
       <CenteredContainer />
         <div style={{ marginTop: "280px" }}>
           <AddPlaces />
@@ -132,7 +133,7 @@ const Body = () => {
           <AddNewPlace />
           <RequetedAccommodation />
         </div>
-        <Sidebar />
+        
       </div>
     </Fade>
   );
