@@ -16,7 +16,7 @@ body{
   flex-direction: row;
   align-items: center;
   background: linear-gradient(89.76deg, #2d8dab, #81c1d5 36.5%, #285a6d);
-  width: 90%; /* Adjusted width */
+  width: 100%; /* Adjusted width */
   height: 50px; /* Reduced height */
   margin: 10px;
   border-radius: 10px;
