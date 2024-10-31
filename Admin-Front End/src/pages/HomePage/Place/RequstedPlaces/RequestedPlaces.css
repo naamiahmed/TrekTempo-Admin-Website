@@ -10,25 +10,25 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 20px;
-    width: 800px; /* Increased width for more space */
+    width: 800px; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: bisque;
     display: flex;
-    flex-direction: row; /* Side by side layout */
-    align-items: flex-start; /* Align items at the start vertically */
+    flex-direction: row;
+    align-items: flex-start;
     overflow: hidden;
 }
 
 .requested-place-details {
-    flex: 1; /* Takes available space for details */
-    padding-right: 20px; /* Space between details and images */
+    flex: 1;
+    padding-right: 20px; 
 }
 
 .requested-place-images {
     display: flex;
-    flex-direction: column; /* Stack images vertically */
+    flex-direction: column; 
     gap: 10px;
-    justify-content: flex-start; /* Align images to the left */
+    justify-content: flex-start; 
 }
 
 .image-container2 {
@@ -39,8 +39,8 @@
 }
 
 .requested-place-image {
-    width: 250px; /* Adjust width for image display */
-    height: 150px; /* Adjust height for image display */
+    width: 250px;
+    height: 150px; 
     object-fit: cover;
     border-radius: 5px;
 }
@@ -64,7 +64,7 @@
 .button-container {
     display: flex;
     gap: 10px;
-    margin-top: auto; /* Ensure buttons are at the bottom */
+    margin-top: auto;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
@@ -97,5 +97,18 @@
 }
 
 .hidden {
-    display: none; /* Helper class to hide empty containers */
+    display: none;
+}
+
+.title1-container {
+    background-color:  rgb(33, 150, 243);
+    padding: 5px 10px;
+    vertical-align: middle;
+}
+
+.title1-container h1 {
+    font-size: 2em;
+    color: white;
+    margin: 0;
+
 }
