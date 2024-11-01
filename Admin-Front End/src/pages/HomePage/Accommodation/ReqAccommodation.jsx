@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ReqAccommodation.css";
-// import { useNavigate } from "react-router-dom";
 
 const DisplayAccommodation = () => {
   const [data, setData] = useState([]);
@@ -9,7 +8,6 @@ const DisplayAccommodation = () => {
   const [error, setError] = useState(null);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
-  // const navigate = useNavigate();
 
   useEffect(() => {
     getAllAccommodations();
@@ -18,14 +16,13 @@ const DisplayAccommodation = () => {
   const getAllAccommodations = async () => {
     try {
       const response = await axios.get("http://localhost:5000/api/getAllAccommodations");
-      console.log("Response from backend:", response.data); // Debugging log
       if (response.data.success) {
-        setData(response.data.accommodations); // Ensure this matches the backend response
+        setData(response.data.accommodations);
       } else {
         setError(new Error(response.data.message));
       }
     } catch (error) {
-      console.error("Error fetching accommodations:", error); // Debugging log
+      console.error("Error fetching accommodations:", error);
       setError(error);
     } finally {
       setLoading(false);
@@ -71,70 +68,69 @@ const DisplayAccommodation = () => {
 
   return (
     <div>
-      {/* <button className="add-button1" onClick={() => navigate("/23")}>
-        Next
-      </button> */}
-      <h1>Accommodation Details</h1>
+      <div className="title1-container" style={{ margin: 0 }}>
+        <h1>Requested Accommodations</h1>
+      </div>
+
       <div className="card-container1">
         {data.map((item) => (
           <div key={item._id} className="card1">
-            <h2>{item.name}</h2>
-            <p>
-              <strong>Description:</strong> {item.description}
-            </p>
-            <p>
-              <strong>District:</strong> {item.district}
-            </p>
-
-            <p>
-              <strong>Location:</strong> {item.location}
-            </p>
-
-            <p>
-              <strong>Budget:</strong> {item.budget}
-            </p>
-
-            <p>
-              <strong>Location Link:</strong>{" "}
-              <a href={item.locationLink} target="_blank" rel="noopener noreferrer">
-                {item.locationLink}
-              </a>
-            </p>
-            <div className="image-container1">
-              <img
-                src={item.images[0]} // Assuming images is an array
-                alt={item.name}
-                className="Accommodation-image"
-              />
+            <div className="accommodation-details">
+              <h3><strong>Name:</strong> {item.name}</h3>
+              <p><strong>Description:</strong> {item.description}</p>
+              <p><strong>District:</strong> {item.district}</p>
+              <p><strong>Location:</strong> {item.location}</p>
+              <p><strong>Budget:</strong> {item.budget}</p>
+              <p>
+                <strong>Location Link:</strong>{" "}
+                <a href={item.locationLink} target="_blank" rel="noopener noreferrer">
+                  {item.locationLink}
+                </a>
+              </p>
+              <div className="card-buttons1">
+                <button
+                  className="delete-button"
+                  onClick={() => {
+                    setDeleteId(item._id);
+                    setShowConfirmModal(true);
+                  }}
+                >
+                  Delete
+                </button>
+                <button
+                  className="accept-button"
+                  onClick={() => handleAccept(item._id)}
+                >
+                  Accept
+                </button>
+              </div>
             </div>
-            <div className="card-buttons1">
-              <button
-                className="delete-button"
-                onClick={() => {
-                  setDeleteId(item._id);
-                  setShowConfirmModal(true);
-                }}
-              >
-                Delete
-              </button>
-              <button
-                className="accept-button"
-                onClick={() => handleAccept(item._id)}
-              >
-                Accept
-              </button>
+            <div className="image-container1">
+              {item.images && item.images.map((image, index) => (
+                <div key={index} className="image-wrapper">
+                  <img
+                    src={image}
+                    alt={`${item.name} - Image ${index + 1}`}
+                    className="Accommodation-image"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         ))}
       </div>
 
       {showConfirmModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>Confirm Deletion</h2>
-            <p>Are you sure you want to delete this accommodation?</p>
-            <button onClick={handleDelete}>Yes</button>
-            <button onClick={() => setShowConfirmModal(false)}>No</button>
+        <div className="modal-overlay">
+          <div className="modal">
+            <div className="modal-content">
+              <h2>Confirm Deletion</h2>
+              <p>Are you sure you want to delete this accommodation?</p>
+              <div className="modal-buttons">
+                <button className="modal-button confirm" onClick={handleDelete}>Yes</button>
+                <button className="modal-button cancel" onClick={() => setShowConfirmModal(false)}>No</button>
+              </div>
+            </div>
           </div>
         </div>
       )}
