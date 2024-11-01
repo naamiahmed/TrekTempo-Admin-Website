@@ -15,7 +15,7 @@ const RequestedPlaces = () => {
             if (response.data.success) {
               setPlaces(response.data.places);
             } else {
-              setError(new Error(response.data.message));
+            //   setError(new Error(response.data.message));
             }
             setLoading(false);
           })
@@ -70,7 +70,11 @@ const RequestedPlaces = () => {
 
     return (
         <div>
-            <h2>Requested New Places</h2>
+
+            <div className="title1-container" style={{ margin: 0 }}>
+                <h1>Requested Places</h1>
+            </div>
+
             <div className="requested-places-container">
                 {places.map((place) => (
                     <div key={place._id} className="requested-place-card">

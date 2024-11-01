@@ -17,11 +17,11 @@ const AddPlaceForm = () => {
     location: place?.location || "",
     direction: place?.direction || "",
     description: place?.description || "",
-    images: [], // Initialize images as an empty array
+    images: [], 
   });
 
   const [showPopup, setShowPopup] = useState(false); 
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({});
 
   // Handler for form input changes
   const handleChange = (e) => {
@@ -30,11 +30,45 @@ const AddPlaceForm = () => {
       ...formData,
       [name]: value,
     });
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: "" })); // Clear error when user starts typing
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+  
+    // Regex pattern to allow only letters and spaces
+    const lettersOnlyPattern = /^[A-Za-z\s]+$/;
+  
+    // Place Name, District, City validations
+    if (!formData.name) {
+      newErrors.name = "Place Name cannot be empty";
+    } else if (!lettersOnlyPattern.test(formData.name)) {
+      newErrors.name = "Place Name should contain only letters and spaces";
+    }
+  
+    if (!formData.district) {
+      newErrors.district = "District cannot be empty";
+    } else if (!lettersOnlyPattern.test(formData.district)) {
+      newErrors.district = "District should contain only letters and spaces";
+    }
+  
+    if (!formData.city) {
+      newErrors.city = "City cannot be empty";
+    } else if (!lettersOnlyPattern.test(formData.city)) {
+      newErrors.city = "City should contain only letters and spaces";
+    }
+  
+    if (!formData.location) {
+      newErrors.location = "Location cannot be empty";
+    }
+  
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   // Handler for file input (images)
   const handleImageChange = (e, index) => {
-    const file = e.target.files[0]; // Get the first file
+    const file = e.target.files[0];
     const updatedImages = [...formData.images];
     updatedImages[index] = file; // Store the File object in state
     setFormData({
@@ -64,9 +98,13 @@ const AddPlaceForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!validateForm()) {
+      return;
+    }
+
     // Check if at least one image is provided
     if (formData.images.length === 0 || formData.images.every(image => image === null)) {
-      setError("At least one image is required.");
+      setErrors((prevErrors) => ({ ...prevErrors, images: "At least one image is required." }));
       return;
     }
 
@@ -133,6 +171,7 @@ const AddPlaceForm = () => {
             className="form-input"
             required
           />
+          {errors.name && <p className="error-message">{errors.name}</p>}
         </label>
         <label className="form-label">
           District:
@@ -144,6 +183,7 @@ const AddPlaceForm = () => {
             className="form-input"
             required
           />
+          {errors.district && <p className="error-message">{errors.district}</p>}
         </label>
         <label className="form-label">
           City:
@@ -155,6 +195,7 @@ const AddPlaceForm = () => {
             className="form-input"
             required
           />
+          {errors.city && <p className="error-message">{errors.city}</p>}
         </label>
         <label className="form-label">
           Location:
@@ -166,6 +207,7 @@ const AddPlaceForm = () => {
             className="form-input"
             required
           />
+          {errors.location && <p className="error-message">{errors.location}</p>}
         </label>
         <label className="form-label">
           Direction (URL):
@@ -235,7 +277,9 @@ const AddPlaceForm = () => {
         </button>
       </form>
 
-      {error && <p className="error-message">{error}</p>}
+      {Object.values(errors).map((error, index) => (
+        <p key={index} className="error-message">{error}</p>
+      ))}
 
       {showPopup && (
         <div className="popup">
