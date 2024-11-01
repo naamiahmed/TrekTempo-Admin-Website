@@ -96,11 +96,7 @@ const RequetedAccommodation = () => {
 const Sidebar = () => {
   return (
     <div className="Sidebar">
-      <img
-        src="/AppIcon.png"
-        alt="Sidebar Image"
-        className="sidebar-image"
-      />
+      <img src="/AppIcon.png" alt="Sidebar Image" className="sidebar-image" />
       <p className="sidebar-text">TREKTEMPO</p>
       <div className="horizontal-line"></div>
       {/* <h2>Sidebar</h2>
@@ -119,13 +115,22 @@ const CenteredContainer = () => {
   );
 };
 
+// MainContent Component
+const MainContent = () => {
+  return (
+    <div className="MainContent">
+    </div>
+  );
+};
+
 // Main Body Component that renders all sections
 const Body = () => {
   return (
     <Fade>
       <div className="Body">
-      <Sidebar />
-      <CenteredContainer />
+        <Sidebar />
+        
+        
         <div style={{ marginTop: "280px" }}>
           <AddPlaces />
           <AddEvents />
@@ -133,7 +138,8 @@ const Body = () => {
           <AddNewPlace />
           <RequetedAccommodation />
         </div>
-        
+        <CenteredContainer />
+        <MainContent />
       </div>
     </Fade>
   );

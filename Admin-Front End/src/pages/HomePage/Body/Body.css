@@ -10,6 +10,21 @@ body{
     flex-wrap: wrap; /* Allow wrapping */
 }
 
+.MainContent {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+  margin-left: 80px;
+  margin-top: 70px; 
+  margin-right: 8px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(89.76deg, rgba(213, 241, 251, 0.5), rgba(148, 220, 242, 0.5) 36.5%, rgba(213, 241, 251, 0.5)), url('/DashboardBackground.webp');
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
 .Placecard {
   position: relative;
   display: flex;
@@ -118,10 +133,10 @@ body{
   top: 6%;
   left: 30%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(-89.82deg, #0e617a, #30a1c4 64.5%, #6abdd6);
+  /* background: linear-gradient(-89.82deg, #0e617a, #30a1c4 64.5%, #6abdd6); */
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   text-align: center;
   width: 200px;
   height: 20px;
