@@ -112,9 +112,9 @@ const Homepage2 = () => {
                   <div className="account-question">
                     <h3
                       className="forgot-password1"
-                      onClick={onForgotPasswordTextClick}
+                      // onClick={onForgotPasswordTextClick}
                     >
-                      Forgot password
+                      Forgot password ? Click Help
                     </h3>
                   </div>
                 </div>
