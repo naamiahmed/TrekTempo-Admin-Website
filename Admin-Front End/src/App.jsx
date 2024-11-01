@@ -87,6 +87,7 @@ function App() {
         case "/26":
         title = "";
         metaDescription = "";
+        break;
     }
 
     if (title) {

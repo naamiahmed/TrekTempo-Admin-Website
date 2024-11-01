@@ -1,49 +1,185 @@
-/* Body.css */
-body {
-  position: relative;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    /* background-image: url('/public/mirissa-1\ 1.png'); */
-    background-size: cover; /* Ensures the image covers the whole page */
-    background-position: center;
-    background-repeat: no-repeat; /* Prevents tiling of the image */
-    height: 100vh; /* Ensures it covers full viewport height */
-    background-color: rgba(red, green, blue, alpha);
-  }
+
+body{
+  /* background-image: url('/mirissa-1 1.png'); */
+  background: linear-gradient(89.76deg, #bfe4f0, #96d9ed 36.5%, #4b7e93);
+}
+
+.Body {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: wrap; /* Allow wrapping */
+}
+
+.MainContent {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+  margin-left: 80px;
+  margin-top: 70px; 
+  margin-right: 8px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(89.76deg, rgba(213, 241, 251, 0.5), rgba(148, 220, 242, 0.5) 36.5%, rgba(213, 241, 251, 0.5)), url('/DashboardBackground.webp');
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+}
 
 .Placecard {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  background: linear-gradient(180deg, #5fdcce 0%, #4b9c82 100%);
-  width: 529px;
-  height: 321.52px;
-  margin: 20px;
-  border-radius: 14px;
-  text-align: center;
+  background: linear-gradient(89.76deg, #2d8dab, #81c1d5 36.5%, #285a6d);
+  width: 100%; /* Adjusted width */
+  height: 50px; /* Reduced height */
+  margin: 10px;
+  border-radius: 10px;
+  text-align: left; /* Align text to the left */
   box-shadow: 2px 2px 4px rgba(86, 144, 198, 0.11),
               6px 6px 30px rgba(125, 153, 180, 0.20);
+  overflow: hidden;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 1;
+  transition: transform 0.3s ease; /* Add transition for smooth zoom effect */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.Placecard:hover {
+  transform: scale(1.05); /* Zoom in effect on hover */
+}
+
+
+
+.Placecard h2 {
+  font-size: 14px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-icon {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 20px;
-}
+  width: 30px;
+  height: 30px;
+  margin-right: 10px; /* Add margin to the right of the icon */
+
 
 .card-button {
   background-color: #ff6600;
   color: white;
   border: none;
-  padding: 10px 20px;
+
+  padding: 5px 10px;
   border-radius: 50%;
-  font-size: 24px;
+  font-size: 10px;
   cursor: pointer;
+  margin: 0 10px;
+
 }
 
 .card-button:hover {
   background-color: #ff3300;
 }
+
+.Sidebar {
+  width: 20%;
+  min-width: 200px; /* Set a minimum width */
+  background: linear-gradient(-89.82deg, #2f91b0, #206175 64.5%, #143d4a);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  z-index: 0;
+}
+
+.sidebar-image{
+  width: 80%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px 10px 10px 10px;
+  margin-top: 8px;
+}
+
+.sidebar-text{
+  font-size: 24px; /* Increase font size */
+  font-weight: bold; /* Make the text bold */
+  color: #ffffff; /* Set text color to white */
+  margin-top: 20px; /* Add some margin at the top */
+  text-align: center; /* Center align the text */
+  text-transform: uppercase; /* Transform text to uppercase */
+  letter-spacing: 2px; /* Add some letter spacing */
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: calc(0.1em + 0.1vw);
+  
+}
+
+.horizontal-line {
+  width: 80%; /* Adjust the width as needed */
+  border: 1px solid white; /* Set the color and thickness of the line */
+  /* margin: 10px 0;  */
+}
+
+
+.CenteredContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 6%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  /* background: linear-gradient(-89.82deg, #0e617a, #30a1c4 64.5%, #6abdd6); */
+  padding: 20px;
+  border-radius: 10px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  text-align: center;
+  width: 200px;
+  height: 20px;
+}
+
+.centered-image {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.centered-text {
+  font-size: 30px;
+  color: #000000;
+}
+
+
+@media (max-width: 768px) {
+  .Placecard {
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  .Sidebar {
+    width: 25%; /* Adjusted width for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .Placecard {
+    flex-direction: column; /* Stack content vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .card-icon {
+    display: none; /* Hide the icon */
+  }
+
+  .Sidebar {
+    width: 30%; /* Adjusted width for very small screens */
+  }
+}
+
