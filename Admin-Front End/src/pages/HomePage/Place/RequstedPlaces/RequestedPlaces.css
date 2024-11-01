@@ -101,14 +101,14 @@
 }
 
 .title1-container {
-    background-color:  rgb(33, 150, 243);
+    /* background-color:  rgb(33, 150, 243); */
     padding: 5px 10px;
     vertical-align: middle;
 }
 
 .title1-container h1 {
     font-size: 2em;
-    color: white;
+    color: rgb(0, 0, 0);
     margin: 0;
 
 }

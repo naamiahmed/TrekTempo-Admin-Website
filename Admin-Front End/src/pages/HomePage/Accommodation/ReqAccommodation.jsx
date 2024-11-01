@@ -68,7 +68,7 @@ const DisplayAccommodation = () => {
 
   return (
     <div>
-      <div className="title1-container" style={{ margin: 0 }}>
+      <div className="title2-container" style={{ margin: 0 }}>
         <h1>Requested Accommodations</h1>
       </div>
 
