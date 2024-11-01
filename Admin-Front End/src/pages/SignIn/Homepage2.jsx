@@ -16,29 +16,37 @@ const Homepage2 = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Basic validation
-    if (!email || !password) {
-      setError("Both email and password are required");
+    if (!email && !password) {
+      setError("Invalid Credentials");
       return;
     }
-  
+    if (!email) {
+      setError("Enter the Email");
+      return;
+    }
+    if (!password) {
+      setError("Enter the Password");
+      return;
+    }
+
     try {
       console.log("Sending sign-in request with:", { email, password });
       const response = await axios.post("http://localhost:5000/api/signin/", { email, password });
       console.log("Received response:", response);
-  
+
       if (response.status === 200 && response.data) {
         // Handle successful login, e.g., save token, redirect, etc.
         console.log("Login successful:", response.data);
         navigate("/20"); // Navigate to the Body component
       } else {
         console.error("Unexpected response:", response);
-        setError("Invalid credentials");
+        setError("Invalid Credentials");
       }
     } catch (err) {
       console.error("Error during sign-in:", err);
-      setError("Invalid credentials");
+      setError("Invalid Credentials");
     }
   };
 
