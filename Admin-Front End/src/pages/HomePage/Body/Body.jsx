@@ -1,32 +1,36 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 import "./Body.css";
-import "./NavigationBar.css";
+// import "./NavigationBar.css";
 
 // NavigationBar Component
-const NavigationBar = () => {
-  return (
-    <header className="navbar">
-      <div className="logo-section">
-        <img src="/AppIcon.png" alt="Logo" className="logo-icon" />
-        <h1 className="App-name">TrackTempo</h1>
-      </div>
-      <div className="user-section">
-        <img src="/Notifications.png" alt="Notifications" className="icon" />
-      </div>
-    </header>
-  );
-};
+// const NavigationBar = () => {
+//   return (
+//     <header className="navbar">
+//       <div className="logo-section">
+//         <img src="/AppIcon.png" alt="Logo" className="logo-icon" />
+//         <h1 className="App-name">TrackTempo</h1>
+//       </div>
+//       <div className="user-section">
+//         <img src="/Notifications.png" alt="Notifications" className="icon" />
+//       </div>
+//     </header>
+//   );
+// };
+
 
 // AddPlaces Component
 const AddPlaces = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="Placecard">
+
+    <div className="Placecard" onClick={() => navigate("/21")}>
       <img src="/AddPlaceIcon.png" alt="Add Places" className="card-icon" />
-      <h2>Requested New Places</h2>
-      <button className="card-button" onClick={() => navigate("/21")}>➔</button>
+      <h2>Requested Places</h2>
+      {/* <button className="card-button" >➔</button> */}
+
     </div>
   );
 };
@@ -40,10 +44,12 @@ const AddEvents = () => {
   };
 
   return (
-    <div className="Placecard">
+
+    <div className="Placecard" onClick={handleClick}>
       <img src="/AddEventIcon.png" alt="Add Events" className="card-icon" />
       <h2>Add Events</h2>
-      <button className="card-button" onClick={handleClick}>➔</button>
+      {/* <button className="card-button" >➔</button> */}
+
     </div>
   );
 };
@@ -53,10 +59,12 @@ const Places = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="Placecard">
+
+    <div className="Placecard" onClick={() => navigate("/25")}>
       <img src="/AddPlace.png" alt="Add Events" className="card-icon" />
       <h2>Available Places</h2>
-      <button className="card-button" onClick={() => navigate("/25")}>➔</button>
+      {/* <button className="card-button" >➔</button> */}
+
     </div>
   );
 };
@@ -66,10 +74,12 @@ const AddNewPlace = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="Placecard">
+
+    <div className="Placecard" onClick={() => navigate("/26")}>
       <img src="/AddPlace.png" alt="Add New Places" className="card-icon" />
       <h2>Add New Places</h2>
-      <button className="card-button" onClick={() => navigate("/26")}>➔</button>
+      {/* <button className="card-button" >➔</button> */}
+
     </div>
   );
 };
@@ -79,10 +89,47 @@ const RequetedAccommodation = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="Placecard">
-      <img src="/AddPlace.png" alt="Requested Accommodation" className="card-icon" />
-      <h2>Requested Accommodation</h2>
-      <button className="card-button" onClick={() => navigate("/27")}>➔</button>
+
+    <div className="Placecard" onClick={() => navigate("/27")}>
+      <img
+        src="/AddPlace.png"
+        alt="Requested Accommodation"
+        className="card-icon"
+      />
+      <h2>Accommodation</h2>
+      {/* <button className="card-button" >➔</button> */}
+    </div>
+  );
+};
+
+// Sidebar Component
+const Sidebar = () => {
+  return (
+    <div className="Sidebar">
+      <img src="/AppIcon.png" alt="Sidebar Image" className="sidebar-image" />
+      <p className="sidebar-text">TREKTEMPO</p>
+      <div className="horizontal-line"></div>
+      {/* <h2>Sidebar</h2>
+      <p>Additional content can go here.</p> */}
+    </div>
+  );
+};
+
+// CenteredContainer Component
+const CenteredContainer = () => {
+  return (
+    <div className="CenteredContainer">
+      <img src="/Dashboard.png" alt="Centered" className="centered-image" />
+      <p className="centered-text">Dashboard</p>
+    </div>
+  );
+};
+
+// MainContent Component
+const MainContent = () => {
+  return (
+    <div className="MainContent">
+
     </div>
   );
 };
@@ -90,14 +137,24 @@ const RequetedAccommodation = () => {
 // Main Body Component that renders all sections
 const Body = () => {
   return (
-    <div className="Body">
-      <NavigationBar />
-      <AddPlaces />
-      <AddEvents />
-      <Places />
-      <AddNewPlace />
-      <RequetedAccommodation />
-    </div>
+
+    <Fade>
+      <div className="Body">
+        <Sidebar />
+        
+        
+        <div style={{ marginTop: "280px" }}>
+          <AddPlaces />
+          <AddEvents />
+          <Places />
+          <AddNewPlace />
+          <RequetedAccommodation />
+        </div>
+        <CenteredContainer />
+        <MainContent />
+      </div>
+    </Fade>
+
   );
 };
 

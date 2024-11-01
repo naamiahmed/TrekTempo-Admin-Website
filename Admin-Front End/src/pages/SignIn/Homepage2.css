@@ -53,6 +53,8 @@
   padding: 0 var(--padding-7xs);
 }
 .rectangle-input {
+  font-size: 20px;
+  padding: 10px;
   border: 2px solid var(--color-gray-500);
   outline: 0;
   background-color: var(--color-whitesmoke-100);
@@ -453,6 +455,8 @@
   line-height: normal;
   letter-spacing: normal;
 }
+
+
 @media screen and (max-width: 1150px) {
   .frame-wrapper,
   .rectangle-parent1 {
@@ -517,4 +521,9 @@
     padding-bottom: 36px;
     box-sizing: border-box;
   }
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
 }
