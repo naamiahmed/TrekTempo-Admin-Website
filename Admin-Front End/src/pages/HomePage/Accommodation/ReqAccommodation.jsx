@@ -7,6 +7,8 @@ const DisplayAccommodation = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
   // const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,16 +32,19 @@ const DisplayAccommodation = () => {
     }
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete = async () => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/deleteAccommodation/${id}`);
+      const response = await axios.delete(`http://localhost:5000/api/deleteAccommodation/${deleteId}`);
       if (response.data.success) {
-        setData(data.filter((item) => item._id !== id));
+        setData(data.filter((item) => item._id !== deleteId));
       } else {
         setError(new Error(response.data.message));
       }
     } catch (error) {
       setError(error);
+    } finally {
+      setShowConfirmModal(false);
+      setDeleteId(null);
     }
   };
 
@@ -105,7 +110,10 @@ const DisplayAccommodation = () => {
             <div className="card-buttons1">
               <button
                 className="delete-button"
-                onClick={() => handleDelete(item._id)}
+                onClick={() => {
+                  setDeleteId(item._id);
+                  setShowConfirmModal(true);
+                }}
               >
                 Delete
               </button>
@@ -119,6 +127,17 @@ const DisplayAccommodation = () => {
           </div>
         ))}
       </div>
+
+      {showConfirmModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Confirm Deletion</h2>
+            <p>Are you sure you want to delete this accommodation?</p>
+            <button onClick={handleDelete}>Yes</button>
+            <button onClick={() => setShowConfirmModal(false)}>No</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

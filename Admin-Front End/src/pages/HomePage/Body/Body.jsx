@@ -19,15 +19,18 @@ import "./Body.css";
 //   );
 // };
 
+
 // AddPlaces Component
 const AddPlaces = () => {
   const navigate = useNavigate();
 
   return (
+
     <div className="Placecard" onClick={() => navigate("/21")}>
       <img src="/AddPlaceIcon.png" alt="Add Places" className="card-icon" />
       <h2>Requested Places</h2>
       {/* <button className="card-button" >➔</button> */}
+
     </div>
   );
 };
@@ -41,10 +44,12 @@ const AddEvents = () => {
   };
 
   return (
+
     <div className="Placecard" onClick={handleClick}>
       <img src="/AddEventIcon.png" alt="Add Events" className="card-icon" />
       <h2>Add Events</h2>
       {/* <button className="card-button" >➔</button> */}
+
     </div>
   );
 };
@@ -54,10 +59,12 @@ const Places = () => {
   const navigate = useNavigate();
 
   return (
+
     <div className="Placecard" onClick={() => navigate("/25")}>
       <img src="/AddPlace.png" alt="Add Events" className="card-icon" />
       <h2>Available Places</h2>
       {/* <button className="card-button" >➔</button> */}
+
     </div>
   );
 };
@@ -67,10 +74,12 @@ const AddNewPlace = () => {
   const navigate = useNavigate();
 
   return (
+
     <div className="Placecard" onClick={() => navigate("/26")}>
       <img src="/AddPlace.png" alt="Add New Places" className="card-icon" />
       <h2>Add New Places</h2>
       {/* <button className="card-button" >➔</button> */}
+
     </div>
   );
 };
@@ -80,6 +89,7 @@ const RequetedAccommodation = () => {
   const navigate = useNavigate();
 
   return (
+
     <div className="Placecard" onClick={() => navigate("/27")}>
       <img
         src="/AddPlace.png"
@@ -119,6 +129,7 @@ const CenteredContainer = () => {
 const MainContent = () => {
   return (
     <div className="MainContent">
+
     </div>
   );
 };
@@ -126,6 +137,7 @@ const MainContent = () => {
 // Main Body Component that renders all sections
 const Body = () => {
   return (
+
     <Fade>
       <div className="Body">
         <Sidebar />
@@ -142,6 +154,7 @@ const Body = () => {
         <MainContent />
       </div>
     </Fade>
+
   );
 };
 

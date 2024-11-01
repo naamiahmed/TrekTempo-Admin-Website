@@ -1,3 +1,4 @@
+
 body{
   /* background-image: url('/mirissa-1 1.png'); */
   background: linear-gradient(89.76deg, #bfe4f0, #96d9ed 36.5%, #4b7e93);
@@ -64,17 +65,19 @@ body{
   width: 30px;
   height: 30px;
   margin-right: 10px; /* Add margin to the right of the icon */
-}
+
 
 .card-button {
   background-color: #ff6600;
   color: white;
   border: none;
+
   padding: 5px 10px;
   border-radius: 50%;
   font-size: 10px;
   cursor: pointer;
   margin: 0 10px;
+
 }
 
 .card-button:hover {
@@ -179,3 +182,4 @@ body{
     width: 30%; /* Adjusted width for very small screens */
   }
 }
+
