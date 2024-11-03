@@ -66,7 +66,7 @@ const DataDisplay = () => {
       <button className="add-button1" onClick={() => navigate("/23")}>
         Next
       </button>
-      <h1>Event Details</h1>
+      <h2>Event Details</h2>
       <div className="card-container1">
         {data.map((item) => (
           <div key={item._id} className="card1">

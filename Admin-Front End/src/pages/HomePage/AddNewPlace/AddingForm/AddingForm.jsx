@@ -115,8 +115,9 @@ const AddingForm = () => {
   };
 
   return (
-    <div className="add-place-form-container">
-      <h2>Add New Place</h2>
+    
+    <><h2>Add New Place</h2><div className="add-place-form-container">
+
       <form onSubmit={handleSubmit}>
         <div className="form-row">
           <label>Place Name:</label>
@@ -125,8 +126,7 @@ const AddingForm = () => {
             name="placeName"
             value={formData.placeName}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.placeName && <p className="error-message">{errors.placeName}</p>}
         </div>
         <div className="form-row">
@@ -136,8 +136,7 @@ const AddingForm = () => {
             name="district"
             value={formData.district}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.district && <p className="error-message">{errors.district}</p>}
         </div>
         <div className="form-row">
@@ -147,8 +146,7 @@ const AddingForm = () => {
             name="city"
             value={formData.city}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.city && <p className="error-message">{errors.city}</p>}
         </div>
         <div className="form-row">
@@ -158,8 +156,7 @@ const AddingForm = () => {
             name="location"
             value={formData.location}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.location && <p className="error-message">{errors.location}</p>}
         </div>
         <div className="form-row">
@@ -169,8 +166,7 @@ const AddingForm = () => {
             name="direction"
             value={formData.direction}
             onChange={handleChange}
-            required
-          />
+            required />
         </div>
         <div className="form-row">
           <label>Description:</label>
@@ -178,8 +174,7 @@ const AddingForm = () => {
             name="description"
             value={formData.description}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.description && <p className="error-message">{errors.description}</p>}
         </div>
         <div className="form-row">
@@ -188,8 +183,7 @@ const AddingForm = () => {
             type="file"
             name="image1"
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.image1 && <p className="error-message">{errors.image1}</p>}
         </div>
         <div className="form-row">
@@ -197,8 +191,7 @@ const AddingForm = () => {
           <input
             type="file"
             name="image2"
-            onChange={handleChange}
-          />
+            onChange={handleChange} />
           {errors.image2 && <p className="error-message">{errors.image2}</p>}
         </div>
         <div className="form-row">
@@ -206,8 +199,7 @@ const AddingForm = () => {
           <input
             type="file"
             name="image3"
-            onChange={handleChange}
-          />
+            onChange={handleChange} />
           {errors.image3 && <p className="error-message">{errors.image3}</p>}
         </div>
         <button type="submit">Submit</button>
@@ -221,7 +213,7 @@ const AddingForm = () => {
           </div>
         </div>
       )}
-    </div>
+    </div></>
   );
 };
 

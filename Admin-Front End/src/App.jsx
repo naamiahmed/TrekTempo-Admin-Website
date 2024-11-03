@@ -60,10 +60,10 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/16":
-        title = "";
-        metaDescription = "";
-        break;
+      // case "/16":
+      //   title = "";
+      //   metaDescription = "";
+      //   break;
       case "/20":
         title = "";
         metaDescription = "";
@@ -120,13 +120,13 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      {/* <Route path="/" element={<HomePage />} /> */}
       <Route path="/19" element={<Shop />} />
       <Route path="/18" element={<Root1 />} />
       <Route path="/17" element={<Root />} />
 
       <Route path="/12" element={<Homepage1 />} />
-      <Route path="/16" element={<Homepage2 />} />
+      <Route path="/" element={<Homepage2 />} />
       <Route path="/20" element={<Body />} />
       <Route path="/21" element={<RequestedPlaces />} />
       <Route path="/22" element={<DataDisplay />} />

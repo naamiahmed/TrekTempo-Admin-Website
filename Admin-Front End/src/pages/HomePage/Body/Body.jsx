@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import "./Body.css";
 
@@ -21,18 +21,23 @@ import "./Body.css";
 // };
 
 
+
 // AddPlaces Component
 const AddPlaces = () => {
   const navigate = useNavigate();
 
   return (
-
-    <div className="Placecard" onClick={() => navigate("/21")}>
+    <div className="Placecard" >
       <img src="/AddPlaceIcon.png" alt="Add Places" className="card-icon" />
-      <h2>Requested Places</h2>
-      {/* <button className="card-button" >➔</button> */}
-
+      <div className="flex-container">
+      <h2>Places</h2>
+      <div className="listofthings">
+        <div onClick={() => navigate("/25")}>View</div>
+        <div onClick={() => navigate("/26")}>Add</div>
+        <div onClick={() => navigate("/21")}>Req</div>
+      </div>
     </div>
+      </div>
   );
 };
 
@@ -40,50 +45,26 @@ const AddPlaces = () => {
 const AddEvents = () => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate("/22");
-  };
+  // const handleClick = () => {
+  //   navigate("/22");
+  // };
 
   return (
-
-    <div className="Placecard" onClick={handleClick}>
+    <div className="Placecard">
       <img src="/AddEventIcon.png" alt="Add Events" className="card-icon" />
-      <h2>Add Events</h2>
-      {/* <button className="card-button" >➔</button> */}
-
+      <div className="flex-container">
+      <h2>Events</h2>
+      <div className="listofthings">
+        <div onClick={() => navigate("/22")}>View</div>
+        <div onClick={() => navigate("#")}>Add</div>
+        <div onClick={() => navigate("#")}>Req</div>
+      </div>
+      </div>
     </div>
   );
 };
 
-// Places Component
-const Places = () => {
-  const navigate = useNavigate();
 
-  return (
-
-    <div className="Placecard" onClick={() => navigate("/25")}>
-      <img src="/AddPlace.png" alt="Add Events" className="card-icon" />
-      <h2>Available Places</h2>
-      {/* <button className="card-button" >➔</button> */}
-
-    </div>
-  );
-};
-
-// AddNewPlace Component
-const AddNewPlace = () => {
-  const navigate = useNavigate();
-
-  return (
-
-    <div className="Placecard" onClick={() => navigate("/26")}>
-      <img src="/AddPlace.png" alt="Add New Places" className="card-icon" />
-      <h2>Add New Places</h2>
-      {/* <button className="card-button" >➔</button> */}
-
-    </div>
-  );
-};
 
 
 
@@ -129,18 +110,22 @@ const RequetedAccommodation = () => {
   const navigate = useNavigate();
 
   return (
-
-    <div className="Placecard" onClick={() => navigate("/27")}>
-      <img
-        src="/AddPlace.png"
-        alt="Requested Accommodation"
-        className="card-icon"
-      />
+    <div className="Placecard">
+      <img src="/AddPlace.png" alt="Requested Accommodation" className="card-icon" />
+      <div className="flex-container">
       <h2>Accommodation</h2>
-      {/* <button className="card-button" >➔</button> */}
+      <div className="listofthings">
+        <div onClick={() => navigate("#")}>View</div>
+        <div onClick={() => navigate("#")}>Add</div>
+        <div onClick={() => navigate("/27")}>Req</div>
+      </div>
+      </div>
     </div>
   );
 };
+
+
+
 
 // Sidebar Component
 const Sidebar = () => {
@@ -149,8 +134,6 @@ const Sidebar = () => {
       <img src="/AppIcon.png" alt="Sidebar Image" className="sidebar-image" />
       <p className="sidebar-text">TREKTEMPO</p>
       <div className="horizontal-line"></div>
-      {/* <h2>Sidebar</h2>
-      <p>Additional content can go here.</p> */}
     </div>
   );
 };
@@ -169,7 +152,13 @@ const CenteredContainer = () => {
 const MainContent = () => {
   return (
     <div className="MainContent">
-
+      <Routes>
+        <Route path="/25" element={<div>Content for /25</div>} />
+        <Route path="/26" element={<div>Content for /26</div>} />
+        <Route path="/21" element={<div>Content for /21</div>} />
+        <Route path="/22" element={<div>Content for /22</div>} />
+        <Route path="/27" element={<div>Content for /27</div>} />
+      </Routes>
     </div>
   );
 };
@@ -177,12 +166,9 @@ const MainContent = () => {
 // Main Body Component that renders all sections
 const Body = () => {
   return (
-
     <Fade>
       <div className="Body">
         <Sidebar />
-        
-        
         <div style={{ marginTop: "280px" }}>
           <AddPlaces />
           <AddEvents />
@@ -190,13 +176,13 @@ const Body = () => {
           <AddNewPlace />
           <AddEventForm />
           <AddAccomadationForm/>
+
           <RequetedAccommodation />
         </div>
         <CenteredContainer />
         <MainContent />
       </div>
     </Fade>
-
   );
 };
 
