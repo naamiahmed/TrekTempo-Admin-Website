@@ -69,7 +69,7 @@ const DisplayAccommodation = () => {
   return (
     <div>
       <div className="title2-container" style={{ margin: 0 }}>
-        <h1>Requested Accommodations</h1>
+        <h2>Requested Accommodations</h2>
       </div>
 
       <div className="card-container1">
