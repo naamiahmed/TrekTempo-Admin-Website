@@ -38,6 +38,9 @@ const DataDisplay = () => {
         date: new Date().toISOString(),
         imageUrl: "https://via.placeholder.com/150",
       },
+
+
+      
     ];
     setData(mockEvents);
     setLoading(false);
