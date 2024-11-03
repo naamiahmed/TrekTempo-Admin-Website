@@ -56,7 +56,7 @@ const AddEvents = () => {
       <h2>Events</h2>
       <div className="listofthings">
         <div onClick={() => navigate("/22")}>View</div>
-        <div onClick={() => navigate("#")}>Add</div>
+        <div onClick={() => navigate("/add-event")}>Add</div>
         <div onClick={() => navigate("#")}>Req</div>
       </div>
       </div>
@@ -116,7 +116,7 @@ const RequetedAccommodation = () => {
       <h2>Accommodation</h2>
       <div className="listofthings">
         <div onClick={() => navigate("#")}>View</div>
-        <div onClick={() => navigate("#")}>Add</div>
+        <div onClick={() => navigate("/add-accommodation")}>Add</div>
         <div onClick={() => navigate("/27")}>Req</div>
       </div>
       </div>
@@ -172,11 +172,10 @@ const Body = () => {
         <div style={{ marginTop: "280px" }}>
           <AddPlaces />
           <AddEvents />
-          <Places />
-          <AddNewPlace />
-          <AddEventForm />
-          <AddAccomadationForm/>
-
+          {/* <Places /> */}
+          {/* <AddNewPlace /> */}
+          {/* <AddEventForm />
+          <AddAccomadationForm/> */}
           <RequetedAccommodation />
         </div>
         <CenteredContainer />
