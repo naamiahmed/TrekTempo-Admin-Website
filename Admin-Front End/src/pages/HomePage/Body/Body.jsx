@@ -3,6 +3,25 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import "./Body.css";
 
+// import "./NavigationBar.css";
+
+// NavigationBar Component
+// const NavigationBar = () => {
+//   return (
+//     <header className="navbar">
+//       <div className="logo-section">
+//         <img src="/AppIcon.png" alt="Logo" className="logo-icon" />
+//         <h1 className="App-name">TrackTempo</h1>
+//       </div>
+//       <div className="user-section">
+//         <img src="/Notifications.png" alt="Notifications" className="icon" />
+//       </div>
+//     </header>
+//   );
+// };
+
+
+
 // AddPlaces Component
 const AddPlaces = () => {
   const navigate = useNavigate();
@@ -44,6 +63,45 @@ const AddEvents = () => {
     </div>
   );
 };
+
+
+
+
+
+
+
+// AddEventForm Component
+const AddEventForm = () => {
+  const navigate = useNavigate();
+
+  return (
+
+    <div className="Placecard" onClick={() => navigate("/add-event")}>
+      <img src="/AddPlace.png" alt="Add New Places" className="card-icon" />
+      <h2>Add EventForm</h2>
+      {/* <button className="card-button" >➔</button> */}
+
+    </div>
+  );
+};
+
+// AddAccomadation Component
+const AddAccomadationForm = () => {
+  const navigate = useNavigate();
+
+  return (
+
+    <div className="Placecard" onClick={() => navigate("/add-accommodation")}>
+      <img src="/AddPlace.png" alt="AddAccomodationForm" className="card-icon" />
+      <h2>Add Accomodation Form</h2>
+      {/* <button className="card-button" >➔</button> */}
+
+    </div>
+  );
+};
+
+
+
 
 
 
@@ -114,8 +172,11 @@ const Body = () => {
         <div style={{ marginTop: "280px" }}>
           <AddPlaces />
           <AddEvents />
-          {/* <Places /> */}
-          {/* <AddNewPlace /> */}
+          <Places />
+          <AddNewPlace />
+          <AddEventForm />
+          <AddAccomadationForm/>
+
           <RequetedAccommodation />
         </div>
         <CenteredContainer />

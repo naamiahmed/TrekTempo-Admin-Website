@@ -11,11 +11,16 @@ const HomePage = () => {
     navigate("/20"); // Navigate to the Body component
   };
 
+  const goToAddEventPage = () => {
+    navigate("/add-event");
+  };
+
   return (
     <div className="home-page">
       <main className="sign-up1">
         <div className="image-container">
           <button className="skip" onClick={handleSkip}>
+          <button onClick={goToAddEventPage}>Add New Event</button>
             SKIP
           </button>
           <div className="image-container-child" />
