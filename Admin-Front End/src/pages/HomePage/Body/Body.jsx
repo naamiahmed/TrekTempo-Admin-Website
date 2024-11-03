@@ -57,7 +57,7 @@ const AddEvents = () => {
       <div className="listofthings">
         <div onClick={() => navigate("/22")}>View</div>
         <div onClick={() => navigate("/add-event")}>Add</div>
-        <div onClick={() => navigate("#")}>Req</div>
+        <div onClick={() => navigate("/22")}>Req</div>
       </div>
       </div>
     </div>

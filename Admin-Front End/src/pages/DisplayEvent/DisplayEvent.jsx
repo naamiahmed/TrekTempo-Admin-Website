@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./DisplayEvent.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const DataDisplay = () => {
   const [data, setData] = useState([]);
@@ -9,51 +10,40 @@ const DataDisplay = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Replace the API call with mock data
-    getMockEvents();
+    fetchEvents();
   }, []);
 
-  const getMockEvents = () => {
-    // Simulate mock data instead of making an API call
-    const mockEvents = [
-      {
-        _id: "1",
-        title: "Sample Event 1",
-        description: "Description for Sample Event 1",
-        phone: "123-456-7890",
-        district: "District 1",
-        place: "Place Name 1",
-        location: "http://example.com/location1",
-        date: new Date().toISOString(),
-        imageUrl: "https://via.placeholder.com/150",
-      },
-      {
-        _id: "2",
-        title: "Sample Event 2",
-        description: "Description for Sample Event 2",
-        phone: "987-654-3210",
-        district: "District 2",
-        place: "Place Name 2",
-        location: "http://example.com/location2",
-        date: new Date().toISOString(),
-        imageUrl: "https://via.placeholder.com/150",
-      },
-
-
-      
-    ];
-    setData(mockEvents);
-    setLoading(false);
+  const fetchEvents = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/api/getAllEvents");
+      console.log("Fetched events:", response.data.events); // Debug log
+      setData(response.data.events);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching events:", error); // Debug log
+      setError(error);
+      setLoading(false);
+    }
   };
 
-  const handleDelete = (id) => {
-    // Update local state without server call
-    setData(data.filter((item) => item._id !== id));
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/deleteEvent/${id}`);
+      setData(data.filter((item) => item._id !== id));
+    } catch (error) {
+      console.error("Error deleting event:", error); // Debug log
+      setError(error);
+    }
   };
 
-  const handleAccept = (id) => {
-    // Placeholder for handling accept, refresh the list if needed
-    console.log(`Accepted event with id: ${id}`);
+  const handleAccept = async (id) => {
+    try {
+      await axios.post(`http://localhost:5000/api/moveEventToAccepted/${id}`);
+      setData(data.filter((item) => item._id !== id));
+    } catch (error) {
+      console.error("Error accepting event:", error); // Debug log
+      setError(error);
+    }
   };
 
   if (loading) {
