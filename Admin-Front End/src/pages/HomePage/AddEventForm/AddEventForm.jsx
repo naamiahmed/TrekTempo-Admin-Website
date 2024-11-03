@@ -5,13 +5,13 @@ import "./AddEventForm.css";
 
 const AddEventForm = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    title: "",
     description: "",
     phone: "",
     district: "",
     place: "",
     date: "",
-    locationLink: "",
+    location: "",
     image: null,
   });
 
@@ -20,25 +20,25 @@ const AddEventForm = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (files) {
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        [name]: files[0],
-      }));
-    } else {
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        [name]: value,
-      }));
-    }
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
     setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+  };
+
+  const handleFileChange = (e) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      image: e.target.files[0],
+    }));
   };
 
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.name) newErrors.name = "Name cannot be empty";
+    if (!formData.title) newErrors.title = "Title cannot be empty";
     if (!formData.description) newErrors.description = "Description cannot be empty";
     
     if (!formData.phone) {
@@ -55,11 +55,7 @@ const AddEventForm = () => {
     
     if (!formData.place) newErrors.place = "Place cannot be empty";
     if (!formData.date) newErrors.date = "Date cannot be empty";
-    if (!formData.locationLink) newErrors.locationLink = "Location Link cannot be empty";
-
-    if (formData.image && !["image/png", "image/jpeg"].includes(formData.image.type)) {
-      newErrors.image = "Invalid file format. Only PNG and JPEG are allowed.";
-    }
+    if (!formData.location) newErrors.location = "Location cannot be empty";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -71,30 +67,26 @@ const AddEventForm = () => {
     if (!validateForm()) return;
 
     const formDataToSend = new FormData();
-    Object.keys(formData).forEach(key => {
-      if (key === 'image') {
-        if (formData[key]) formDataToSend.append(key, formData[key]);
-      } else {
-        formDataToSend.append(key, formData[key]);
-      }
-    });
+    for (const key in formData) {
+      formDataToSend.append(key, formData[key]);
+    }
 
     try {
-      const response = await axios.post("http://localhost:5000/api/createAccommodation", formDataToSend, {
+      const response = await axios.post("http://localhost:5000/api/createAcceptedEvent", formDataToSend, {
         headers: {
-          "Content-Type": "multipart/form-data",
-        },
+          'Content-Type': 'multipart/form-data'
+        }
       });
       console.log("Form submitted successfully:", response.data);
 
       setFormData({
-        name: "",
+        title: "",
         description: "",
         phone: "",
         district: "",
         place: "",
         date: "",
-        locationLink: "",
+        location: "",
         image: null,
       });
 
@@ -111,18 +103,18 @@ const AddEventForm = () => {
 
   return (
     <div className="add-event-form-container">
-      <h2>Add New Accommodation</h2>
+      <h2>Add New Event</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-row">
-          <label>Name:</label>
+          <label>Title:</label>
           <input
             type="text"
-            name="name"
-            value={formData.name}
+            name="title"
+            value={formData.title}
             onChange={handleChange}
             required
           />
-          {errors.name && <p className="error-message">{errors.name}</p>}
+          {errors.title && <p className="error-message">{errors.title}</p>}
         </div>
 
         <div className="form-row">
@@ -185,16 +177,15 @@ const AddEventForm = () => {
         </div>
 
         <div className="form-row">
-          <label>Location Link:</label>
+          <label>Location:</label>
           <input
-            type="url"
-            name="locationLink"
-            value={formData.locationLink}
+            type="text"
+            name="location"
+            value={formData.location}
             onChange={handleChange}
-            placeholder="https://maps.google.com/..."
             required
           />
-          {errors.locationLink && <p className="error-message">{errors.locationLink}</p>}
+          {errors.location && <p className="error-message">{errors.location}</p>}
         </div>
 
         <div className="form-row">
@@ -202,11 +193,8 @@ const AddEventForm = () => {
           <input
             type="file"
             name="image"
-            onChange={handleChange}
-            accept="image/png, image/jpeg"
-            required
+            onChange={handleFileChange}
           />
-          {errors.image && <p className="error-message">{errors.image}</p>}
         </div>
 
         <button type="submit">Submit</button>
@@ -215,7 +203,7 @@ const AddEventForm = () => {
       {showPopup && (
         <div className="popup1">
           <div className="popup-content1">
-            <h3>Accommodation Details Successfully Added</h3>
+            <h3>Event Details Successfully Added</h3>
             <button onClick={handleClosePopup}>Okay</button>
           </div>
         </div>
