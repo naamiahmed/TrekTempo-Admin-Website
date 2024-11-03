@@ -72,7 +72,7 @@ const RequestedPlaces = () => {
         <div>
 
             <div className="title1-container" style={{ margin: 0 }}>
-                <h1>Requested Places</h1>
+                <h2>Requested Places</h2>
             </div>
 
             <div className="requested-places-container">

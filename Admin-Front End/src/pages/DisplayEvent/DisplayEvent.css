@@ -1,13 +1,18 @@
+h2 {
+  text-align: center;
+  font-size: 48px; /* Larger title size */
+}
+
 .card-container1 {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   padding: 40px;
-  background-color: #f8f9fa;
+  /* background-color: #f8f9fa; */
 }
 
 .card1 {
-  background-color: #ffffff;
+  background: linear-gradient(-89.82deg, #297f99, #3090ad 64.5%, #54c2e4);
   border: 1px solid #dee2e6;
   border-radius: 12px;
   padding: 20px;
@@ -31,7 +36,7 @@
 
 .card1 p {
   margin: 0 0 8px;
-  color: #6c757d;
+  color: #dedede;
 }
 
 .image-container1 {
