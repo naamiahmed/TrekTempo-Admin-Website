@@ -1,3 +1,8 @@
+h2 {
+    text-align: center;
+    font-size: 48px; /* Larger title size */
+}
+
 .requested-places-container {
     display: flex;
     flex-wrap: wrap;
@@ -12,7 +17,7 @@
     padding: 20px;
     width: 800px; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: bisque;
+    background: linear-gradient(-89.82deg, #297f99, #3090ad 64.5%, #54c2e4);
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -101,14 +106,14 @@
 }
 
 .title1-container {
-    background-color:  rgb(33, 150, 243);
+    /* background-color:  rgb(33, 150, 243); */
     padding: 5px 10px;
     vertical-align: middle;
 }
 
 .title1-container h1 {
     font-size: 2em;
-    color: white;
+    color: rgb(0, 0, 0);
     margin: 0;
 
 }

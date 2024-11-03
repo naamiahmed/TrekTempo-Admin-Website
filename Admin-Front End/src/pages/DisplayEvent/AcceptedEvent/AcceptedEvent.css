@@ -1,11 +1,17 @@
+h2 {
+  text-align: center;
+  font-size: 48px; /* Larger title size */
+}
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  justify-content: center;
 }
 
 .card {
-  background-color: white;
+  background: linear-gradient(-89.82deg, #297f99, #3090ad 64.5%, #54c2e4);
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 16px;
@@ -15,7 +21,7 @@
   overflow: hidden; /* Ensure that contents don't overflow */
 }
 
-.card h2 {
+.card h1 {
   margin: 0 0 8px;
 }
 
