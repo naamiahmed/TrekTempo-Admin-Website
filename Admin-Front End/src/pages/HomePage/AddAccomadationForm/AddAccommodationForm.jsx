@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./AddAccomadationForm.css";
+import "./AddAccommodationForm.css";
 
-const AddAccomadationForm = () => {
+const AddAccommodationForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -32,20 +32,16 @@ const AddAccomadationForm = () => {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.name) newErrors.name = "Name cannot be empty";
-    if (!formData.description) newErrors.description = "Description cannot be empty";
-    if (!formData.phone) {
-      newErrors.phone = "Phone number cannot be empty";
-    } else if (!/^\d{10}$/.test(formData.phone)) {
-      newErrors.phone = "Please enter a valid 10-digit phone number";
-    }
-    if (!formData.district) newErrors.district = "District cannot be empty";
-    if (!formData.place) newErrors.place = "Place cannot be empty";
-    if (!formData.budget) newErrors.budget = "Please select a budget category";
-    if (!formData.locationLink) newErrors.locationLink = "Location link cannot be empty";
-    if (!formData.dayCost) newErrors.dayCost = "Day cost cannot be empty";
+    if (!formData.name) newErrors.name = "Name is required";
+    if (!formData.description) newErrors.description = "Description is required";
+    if (!formData.phone) newErrors.phone = "Phone number is required";
+    if (!formData.district) newErrors.district = "District is required";
+    if (!formData.place) newErrors.place = "Place is required";
+    if (!formData.budget) newErrors.budget = "Budget is required";
+    if (!formData.locationLink) newErrors.locationLink = "Location link is required";
+    if (!formData.dayCost) newErrors.dayCost = "Day cost is required";
     if (formData.image && !["image/png", "image/jpeg"].includes(formData.image.type)) {
-      newErrors.image = "Invalid file format. Only PNG and JPEG are allowed.";
+      newErrors.image = "Image must be a PNG or JPEG file";
     }
 
     setErrors(newErrors);
@@ -215,10 +211,7 @@ const AddAccomadationForm = () => {
         <div className="popup">
           <div className="popup-content">
             <h3>Accommodation Details Successfully Added</h3>
-            <button onClick={() => {
-              setShowPopup(false);
-              navigate('/accommodations');
-            }}>Okay</button>
+            <button onClick={() => setShowPopup(false)}>Okay</button>
           </div>
         </div>
       )}
@@ -226,4 +219,4 @@ const AddAccomadationForm = () => {
   );
 };
 
-export default AddAccomadationForm;
+export default AddAccommodationForm;
