@@ -5,13 +5,13 @@ import "./AddAccomadationForm.css";
 
 const AddAccomadationForm = () => {
   const [formData, setFormData] = useState({
-    district: "",
     name: "",
     description: "",
-    location: "",
+    phone: "",
+    district: "",
+    place: "",
     budget: "",
     locationLink: "",
-    contact: "",
     dayCost: "",
     image: null,
   });
@@ -26,24 +26,26 @@ const AddAccomadationForm = () => {
       ...prevFormData,
       [name]: files ? files[0] : value,
     }));
-    setErrors((prevErrors) => ({ ...prevErrors, [name]: "" })); // Clear error when user starts typing
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
   };
 
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.district) newErrors.district = "District cannot be empty";
     if (!formData.name) newErrors.name = "Name cannot be empty";
     if (!formData.description) newErrors.description = "Description cannot be empty";
-    if (!formData.location) newErrors.location = "Location cannot be empty";
-    if (!formData.budget) newErrors.budget = "Please select a budget";
+    if (!formData.phone) {
+      newErrors.phone = "Phone number cannot be empty";
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      newErrors.phone = "Please enter a valid 10-digit phone number";
+    }
+    if (!formData.district) newErrors.district = "District cannot be empty";
+    if (!formData.place) newErrors.place = "Place cannot be empty";
+    if (!formData.budget) newErrors.budget = "Please select a budget category";
     if (!formData.locationLink) newErrors.locationLink = "Location link cannot be empty";
-    if (!formData.contact) newErrors.contact = "Contact number cannot be empty";
     if (!formData.dayCost) newErrors.dayCost = "Day cost cannot be empty";
-
-    // Check for valid image file format
     if (formData.image && !["image/png", "image/jpeg"].includes(formData.image.type)) {
-      newErrors.image = "Invalid file format for image upload. Only PNG and JPEG are allowed.";
+      newErrors.image = "Invalid file format. Only PNG and JPEG are allowed.";
     }
 
     setErrors(newErrors);
@@ -52,66 +54,47 @@ const AddAccomadationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!validateForm()) return;
 
     const formDataToSend = new FormData();
-    formDataToSend.append("district", formData.district);
-    formDataToSend.append("name", formData.name);
-    formDataToSend.append("description", formData.description);
-    formDataToSend.append("location", formData.location);
-    formDataToSend.append("budget", formData.budget);
-    formDataToSend.append("locationLink", formData.locationLink);
-    formDataToSend.append("contact", formData.contact);
-    formDataToSend.append("dayCost", formData.dayCost);
-    if (formData.image) formDataToSend.append("image", formData.image);
+    Object.keys(formData).forEach(key => {
+      if (key === 'image') {
+        if (formData[key]) formDataToSend.append(key, formData[key]);
+      } else {
+        formDataToSend.append(key, formData[key]);
+      }
+    });
 
     try {
-      const response = await axios.post("http://localhost:5000/api/createAccommodation", formDataToSend, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axios.post(
+        "http://localhost:5000/api/createAccommodation",
+        formDataToSend,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
       console.log("Accommodation submitted successfully:", response.data);
-
       setFormData({
-        district: "",
         name: "",
         description: "",
-        location: "",
+        phone: "",
+        district: "",
+        place: "",
         budget: "",
         locationLink: "",
-        contact: "",
         dayCost: "",
         image: null,
       });
-
       setShowPopup(true);
     } catch (error) {
       console.error("Error submitting the accommodation:", error);
     }
   };
 
-  const handleClosePopup = () => {
-    setShowPopup(false);
-    navigate('/add-accommodation');
-  };
-
   return (
     <div className="add-accommodation-form-container">
       <h2>Add New Accommodation</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-row">
-          <label>District:</label>
-          <input
-            type="text"
-            name="district"
-            value={formData.district}
-            onChange={handleChange}
-            required
-          />
-          {errors.district && <p className="error-message">{errors.district}</p>}
-        </div>
         <div className="form-row">
           <label>Name:</label>
           <input
@@ -123,6 +106,7 @@ const AddAccomadationForm = () => {
           />
           {errors.name && <p className="error-message">{errors.name}</p>}
         </div>
+
         <div className="form-row">
           <label>Description:</label>
           <textarea
@@ -133,50 +117,73 @@ const AddAccomadationForm = () => {
           />
           {errors.description && <p className="error-message">{errors.description}</p>}
         </div>
+
         <div className="form-row">
-          <label>Location:</label>
+          <label>Phone Number:</label>
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            pattern="[0-9]{10}"
+            required
+          />
+          {errors.phone && <p className="error-message">{errors.phone}</p>}
+        </div>
+
+        <div className="form-row">
+          <label>District:</label>
           <input
             type="text"
-            name="location"
-            value={formData.location}
+            name="district"
+            value={formData.district}
             onChange={handleChange}
             required
           />
-          {errors.location && <p className="error-message">{errors.location}</p>}
+          {errors.district && <p className="error-message">{errors.district}</p>}
         </div>
+
         <div className="form-row">
-          <label>Budget:</label>
+          <label>Place:</label>
           <input
             type="text"
+            name="place"
+            value={formData.place}
+            onChange={handleChange}
+            required
+          />
+          {errors.place && <p className="error-message">{errors.place}</p>}
+        </div>
+
+        <div className="form-row">
+          <label>Budget Category:</label>
+          <select
             name="budget"
             value={formData.budget}
             onChange={handleChange}
             required
-          />
+          >
+            <option value="">Select Budget Category</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
           {errors.budget && <p className="error-message">{errors.budget}</p>}
         </div>
+
         <div className="form-row">
           <label>Location Link:</label>
           <input
-            type="text"
+            type="url"
             name="locationLink"
             value={formData.locationLink}
             onChange={handleChange}
+            placeholder="https://maps.google.com/..."
             required
           />
           {errors.locationLink && <p className="error-message">{errors.locationLink}</p>}
         </div>
-        <div className="form-row">
-          <label>Contact Number:</label>
-          <input
-            type="tel"
-            name="contact"
-            value={formData.contact}
-            onChange={handleChange}
-            required
-          />
-          {errors.contact && <p className="error-message">{errors.contact}</p>}
-        </div>
+
         <div className="form-row">
           <label>Day Cost:</label>
           <input
@@ -188,24 +195,30 @@ const AddAccomadationForm = () => {
           />
           {errors.dayCost && <p className="error-message">{errors.dayCost}</p>}
         </div>
+
         <div className="form-row">
           <label>Image:</label>
           <input
             type="file"
             name="image"
             onChange={handleChange}
+            accept="image/png, image/jpeg"
             required
           />
           {errors.image && <p className="error-message">{errors.image}</p>}
         </div>
+
         <button type="submit">Submit</button>
       </form>
 
       {showPopup && (
         <div className="popup">
           <div className="popup-content">
-            <h3>Accommodation Details Successfully Added to Database</h3>
-            <button onClick={handleClosePopup}>Okay</button>
+            <h3>Accommodation Details Successfully Added</h3>
+            <button onClick={() => {
+              setShowPopup(false);
+              navigate('/accommodations');
+            }}>Okay</button>
           </div>
         </div>
       )}
