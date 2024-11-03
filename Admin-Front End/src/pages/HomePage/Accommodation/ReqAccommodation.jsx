@@ -1,3 +1,4 @@
+// DisplayAccommodation.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ReqAccommodation.css";
@@ -8,9 +9,15 @@ const DisplayAccommodation = () => {
   const [error, setError] = useState(null);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
+  const [notifications, setNotifications] = useState([]);
+  const [notificationLoading, setNotificationLoading] = useState(false);
+  const [acceptLoading, setAcceptLoading] = useState(false);
+
+  const userId = "67063e574428fbfde0ab2cb9";
 
   useEffect(() => {
     getAllAccommodations();
+    getNotifications();
   }, []);
 
   const getAllAccommodations = async () => {
@@ -26,6 +33,20 @@ const DisplayAccommodation = () => {
       setError(error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const getNotifications = async () => {
+    setNotificationLoading(true);
+    try {
+      const response = await axios.get("http://localhost:5000/api/getAllNotifications");
+      if (response.data.success) {
+        setNotifications(response.data.notifications);
+      }
+    } catch (error) {
+      console.error("Error fetching notifications:", error);
+    } finally {
+      setNotificationLoading(false);
     }
   };
 
@@ -46,29 +67,55 @@ const DisplayAccommodation = () => {
   };
 
   const handleAccept = async (id) => {
+    setAcceptLoading(true);
     try {
-      const response = await axios.post(`http://localhost:5000/api/moveAccommodationToAccepted/${id}`);
-      if (response.status === 200) {
-        getAllAccommodations();
+      const response = await axios.post(
+        `http://localhost:5000/api/moveAccommodationToAccepted/${id}`,
+        { userId }
+      );
+
+      if (response.data.success) {
+        await Promise.all([
+          getAllAccommodations(),
+          getNotifications()
+        ]);
+        alert("Accommodation accepted successfully!");
       } else {
         setError(new Error(response.data.message));
       }
     } catch (error) {
+      console.error("Error accepting accommodation:", error);
       setError(error);
+      alert("Failed to accept accommodation. Please try again.");
+    } finally {
+      setAcceptLoading(false);
     }
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
+  if (loading) return <div className="loading">Loading...</div>;
+  if (error) return <div className="error">Error: {error.message}</div>;
 
   return (
-    <div>
-      <div className="title1-container" style={{ margin: 0 }}>
+    <div className="accommodation-container">
+      <div className="notifications-section">
+        <h2>Recent Notifications</h2>
+        {notificationLoading ? (
+          <div>Loading notifications...</div>
+        ) : (
+          <div className="notifications-list">
+            {notifications.map((notification) => (
+              <div key={notification._id} className={`notification-item ${notification.isRead ? 'read' : 'unread'}`}>
+                <p>{notification.message}</p>
+                <span className="notification-time">
+                  {new Date(notification.createdAt).toLocaleDateString()}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="title1-container">
         <h1>Requested Accommodations</h1>
       </div>
 
@@ -94,19 +141,21 @@ const DisplayAccommodation = () => {
                     setDeleteId(item._id);
                     setShowConfirmModal(true);
                   }}
+                  disabled={acceptLoading}
                 >
                   Delete
                 </button>
                 <button
                   className="accept-button"
                   onClick={() => handleAccept(item._id)}
+                  disabled={acceptLoading}
                 >
-                  Accept
+                  {acceptLoading ? 'Accepting...' : 'Accept'}
                 </button>
               </div>
             </div>
             <div className="image-container1">
-              {item.images && item.images.map((image, index) => (
+              {item.images?.map((image, index) => (
                 <div key={index} className="image-wrapper">
                   <img
                     src={image}
