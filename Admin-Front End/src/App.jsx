@@ -19,6 +19,10 @@ import RequestedPlaces from "./pages/HomePage/Place/RequstedPlaces/RequestedPlac
 import AllPlaces from "./pages/HomePage/AddedPlaces/AllPlaces/Allplaces";
 import AddingForm from "./pages/HomePage/AddNewPlace/AddingForm/AddingForm";
 import DisplayAccommodation from "./pages/HomePage/Accommodation/ReqAccommodation";
+import AddEventForm from "./pages/HomePage/AddEventForm/AddEventForm";
+import AddAccomadationForm from"./pages/HomePage/AddAccomadationForm/AddAccomadationForm";
+
+
 
 function App() {
   const action = useNavigationType();
@@ -88,6 +92,16 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+
+        case "/add-event":
+          title = "Add Event";
+          metaDescription = "Add a new event to the platform";
+          break;
+
+          case "/add-accommodation":
+          title = "Add Accomodation Form";
+          metaDescription = "Add a new accomodation to the platform";
+          break;
     }
 
     if (title) {
@@ -121,7 +135,11 @@ function App() {
       <Route path="/25" element={<AllPlaces />} />
       <Route path="/26" element={<AddingForm />} />
       <Route path="/27" element={<DisplayAccommodation />} />
-    </Routes>
+      <Route path="/add-event" element={<AddEventForm />} />
+      <Route path="/add-accommodation" element={<AddAccomadationForm />} />
+   
+      
+      </Routes>
   );
 }
 export default App;
