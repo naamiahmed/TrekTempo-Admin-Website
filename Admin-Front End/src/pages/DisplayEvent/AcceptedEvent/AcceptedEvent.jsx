@@ -47,11 +47,11 @@ const AcceptedEvent = () => {
 
   return (
     <div>
-      <h1>Accepted Event Details</h1>
+      <h2>Accepted Event Details</h2>
       <div className="card-container">
         {data.map((item) => (
           <div key={item._id} className="card">
-            <h2>{item.title}</h2>
+            <h1>{item.title}</h1>
             <p><strong>Description:</strong> {item.description}</p>
             <p><strong>Phone Number:</strong> {item.phone}</p>
             <p><strong>District:</strong> {item.district}</p>

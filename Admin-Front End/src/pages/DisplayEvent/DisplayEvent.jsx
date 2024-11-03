@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "./DisplayEvent.css";
 import { useNavigate } from "react-router-dom";
 
@@ -10,55 +9,51 @@ const DataDisplay = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getAllEvents();
+    // Replace the API call with mock data
+    getMockEvents();
   }, []);
 
-  const getAllEvents = async () => {
-    axios
-      .get("http://localhost:5000/api/getAllEvents")
-      .then((response) => {
-        if (response.data.success) {
-          setData(response.data.events);
-        } else {
-          setError(new Error(response.data.message));
-        }
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-        setLoading(false);
-      });
+  const getMockEvents = () => {
+    // Simulate mock data instead of making an API call
+    const mockEvents = [
+      {
+        _id: "1",
+        title: "Sample Event 1",
+        description: "Description for Sample Event 1",
+        phone: "123-456-7890",
+        district: "District 1",
+        place: "Place Name 1",
+        location: "http://example.com/location1",
+        date: new Date().toISOString(),
+        imageUrl: "https://via.placeholder.com/150",
+      },
+      {
+        _id: "2",
+        title: "Sample Event 2",
+        description: "Description for Sample Event 2",
+        phone: "987-654-3210",
+        district: "District 2",
+        place: "Place Name 2",
+        location: "http://example.com/location2",
+        date: new Date().toISOString(),
+        imageUrl: "https://via.placeholder.com/150",
+      },
+
+
+      
+    ];
+    setData(mockEvents);
+    setLoading(false);
   };
 
   const handleDelete = (id) => {
-    axios
-      .delete(`http://localhost:5000/api/deleteEvent/${id}`)
-      .then((response) => {
-        if (response.data.success) {
-          setData(data.filter((item) => item._id !== id));
-        } else {
-          setError(new Error(response.data.message));
-        }
-      })
-      .catch((error) => {
-        setError(error);
-      });
+    // Update local state without server call
+    setData(data.filter((item) => item._id !== id));
   };
 
   const handleAccept = (id) => {
-    axios
-      .post(`http://localhost:5000/api/moveEventToAccepted/${id}`)
-      .then((response) => {
-        if (response.status == "200") {
-          // console.log(`Accepted event with id: ${id}`);
-         getAllEvents();
-        } else {
-          setError(new Error(response.data.message));
-        }
-      })
-      .catch((error) => {
-        setError(error);
-      });
+    // Placeholder for handling accept, refresh the list if needed
+    console.log(`Accepted event with id: ${id}`);
   };
 
   if (loading) {
@@ -74,7 +69,7 @@ const DataDisplay = () => {
       <button className="add-button1" onClick={() => navigate("/23")}>
         Next
       </button>
-      <h1>Event Details</h1>
+      <h2>Event Details</h2>
       <div className="card-container1">
         {data.map((item) => (
           <div key={item._id} className="card1">

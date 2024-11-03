@@ -1,22 +1,19 @@
-/* AddingForm.css */
-h2 {
-  text-align: center;
-  font-size: 48px; /* Larger title size */
-}
+/* AddEventForm.css */
 
-.add-place-form-container {
-  max-width: 600px;
+.add-event-form-container {
+  max-width: 500px;
   margin: 0 auto;
   padding: 20px;
-  background: linear-gradient(-89.82deg, #297f99, #3090ad 64.5%, #54c2e4);
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
 }
 
-h2 {
+.add-event-form-container h2 {
   text-align: center;
+  margin-bottom: 20px;
   color: #333;
+  font-size: 24px;
 }
 
 .form-row {
@@ -26,80 +23,90 @@ h2 {
 }
 
 .form-row label {
+  font-size: 14px;
   font-weight: bold;
   margin-bottom: 5px;
+  color: #555;
 }
 
 .form-row input[type="text"],
 .form-row input[type="file"],
 .form-row textarea {
   padding: 8px;
+  font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 16px;
 }
 
 .form-row textarea {
   resize: vertical;
-  height: 80px;
+  min-height: 80px;
+}
+
+.form-row input[type="file"] {
+  padding: 3px;
 }
 
 .error-message {
-  color: red;
-  font-size: 0.875rem;
+  color: #e74c3c;
+  font-size: 12px;
   margin-top: 5px;
 }
 
 button[type="submit"] {
   width: 100%;
   padding: 10px;
-  background-color: #1389ef;
-  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4CAF50;
   border: none;
   border-radius: 4px;
-  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 button[type="submit"]:hover {
-  background-color: #0f059e;
+  background-color: #45a049;
 }
 
 .popup1 {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
 }
 
 .popup-content1 {
-  background-color: white;
+  background-color: #fff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .popup-content1 h3 {
-  margin-bottom: 20px;
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 
 .popup-content1 button {
   padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
+  font-size: 14px;
+  color: #fff;
+  background-color: #4CAF50;
   border: none;
   border-radius: 4px;
-  font-size: 14px;
   cursor: pointer;
 }
 
 .popup-content1 button:hover {
-  background-color: #0056b3;
+  background-color: #45a049;
 }
