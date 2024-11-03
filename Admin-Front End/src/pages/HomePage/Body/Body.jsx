@@ -66,45 +66,6 @@ const AddEvents = () => {
 
 
 
-
-
-
-
-// AddEventForm Component
-const AddEventForm = () => {
-  const navigate = useNavigate();
-
-  return (
-
-    <div className="Placecard" onClick={() => navigate("/add-event")}>
-      <img src="/AddPlace.png" alt="Add New Places" className="card-icon" />
-      <h2>Add EventForm</h2>
-      {/* <button className="card-button" >➔</button> */}
-
-    </div>
-  );
-};
-
-// AddAccomadation Component
-const AddAccomadationForm = () => {
-  const navigate = useNavigate();
-
-  return (
-
-    <div className="Placecard" onClick={() => navigate("/add-accommodation")}>
-      <img src="/AddPlace.png" alt="AddAccomodationForm" className="card-icon" />
-      <h2>Add Accomodation Form</h2>
-      {/* <button className="card-button" >➔</button> */}
-
-    </div>
-  );
-};
-
-
-
-
-
-
 // RequetedAccommodation Component
 const RequetedAccommodation = () => {
   const navigate = useNavigate();

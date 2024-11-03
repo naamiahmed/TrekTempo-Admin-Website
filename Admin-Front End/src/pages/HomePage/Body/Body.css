@@ -18,7 +18,7 @@ body{
   margin: 70px 8px 0 30px; /* Adjust margins to avoid overflow */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(89.76deg, rgba(213, 241, 251, 0.5), rgba(148, 220, 242, 0.5) 36.5%, rgba(213, 241, 251, 0.5)), url('/DashboardBackground.webp');
+  background: linear-gradient(89.76deg, rgba(213, 241, 251, 0.5), rgba(148, 220, 242, 0.5) 36.5%, rgba(213, 241, 251, 0.5));
   background-size: cover; /* Ensures the image covers the entire area */
   background-repeat: no-repeat; /* Prevents the image from repeating */
   background-position: center; /* Centers the background image */
