@@ -20,7 +20,7 @@ import AllPlaces from "./pages/HomePage/AddedPlaces/AllPlaces/Allplaces";
 import AddingForm from "./pages/HomePage/AddNewPlace/AddingForm/AddingForm";
 import DisplayAccommodation from "./pages/HomePage/Accommodation/ReqAccommodation";
 import AddEventForm from "./pages/HomePage/AddEventForm/AddEventForm";
-import AddAccomadationForm from"./pages/HomePage/AddAccomadationForm/AddAccomadationForm";
+import AddAccomadationForm from"./pages/HomePage/AddAccomadationForm/AddAccommodationForm";
 
 
 
