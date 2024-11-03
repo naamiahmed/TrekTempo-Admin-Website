@@ -55,7 +55,7 @@ const AddEvents = () => {
       <div className="flex-container">
       <h2>Events</h2>
       <div className="listofthings">
-        <div onClick={() => navigate("/22")}>View</div>
+        <div onClick={() => navigate("/23")}>View</div>
         <div onClick={() => navigate("/add-event")}>Add</div>
         <div onClick={() => navigate("/22")}>Req</div>
       </div>
@@ -93,7 +93,7 @@ const Sidebar = () => {
   return (
     <div className="Sidebar">
       <img src="/AppIcon.png" alt="Sidebar Image" className="sidebar-image" />
-      <p className="sidebar-text">TREKTEMPO</p>
+      <p className="sidebar-text">TRACKTEMPO</p>
       <div className="horizontal-line"></div>
     </div>
   );
@@ -103,8 +103,8 @@ const Sidebar = () => {
 const CenteredContainer = () => {
   return (
     <div className="CenteredContainer">
-      <img src="/Dashboard.png" alt="Centered" className="centered-image" />
-      <p className="centered-text">Dashboard</p>
+      {/* <img src="/Dashboard.png" alt="Centered" className="centered-image" /> */}
+      <h2 className="centered-text">Dashboard</h2>
     </div>
   );
 };
@@ -113,13 +113,7 @@ const CenteredContainer = () => {
 const MainContent = () => {
   return (
     <div className="MainContent">
-      <Routes>
-        <Route path="/25" element={<div>Content for /25</div>} />
-        <Route path="/26" element={<div>Content for /26</div>} />
-        <Route path="/21" element={<div>Content for /21</div>} />
-        <Route path="/22" element={<div>Content for /22</div>} />
-        <Route path="/27" element={<div>Content for /27</div>} />
-      </Routes>
+      
     </div>
   );
 };
@@ -133,10 +127,6 @@ const Body = () => {
         <div style={{ marginTop: "280px" }}>
           <AddPlaces />
           <AddEvents />
-          {/* <Places /> */}
-          {/* <AddNewPlace /> */}
-          {/* <AddEventForm />
-          <AddAccomadationForm/> */}
           <RequetedAccommodation />
         </div>
         <CenteredContainer />
