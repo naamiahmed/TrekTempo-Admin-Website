@@ -15,7 +15,7 @@ const DisplayAccommodation = () => {
 
   const getAllAccommodations = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/getAllAccommodations");
+      const response = await axios.get("http://localhost:5000/api/getAllReqAccommodations");
       if (response.data.success) {
         setData(response.data.accommodations);
       } else {
