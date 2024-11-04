@@ -1,0 +1,22 @@
+.all-accommodation-container {
+  padding: 20px;
+}
+
+.accommodation-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.accommodation-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+}
+
+.accommodation-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

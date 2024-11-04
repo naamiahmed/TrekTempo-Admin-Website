@@ -20,7 +20,8 @@ import AllPlaces from "./pages/HomePage/AddedPlaces/AllPlaces/Allplaces";
 import AddingForm from "./pages/HomePage/AddNewPlace/AddingForm/AddingForm";
 import DisplayAccommodation from "./pages/HomePage/Accommodation/ReqAccommodation";
 import AddEventForm from "./pages/HomePage/AddEventForm/AddEventForm";
-import AddAccomadationForm from"./pages/HomePage/AddAccomadationForm/AddAccomadationForm";
+import AddAccomadationForm from"./pages/HomePage/AddAccomadationForm/AddAccommodationForm";
+import AllAccommodation from "./pages/AllAccommodation/AllAccommodation";
 
 
 
@@ -102,6 +103,11 @@ function App() {
           title = "Add Accomodation Form";
           metaDescription = "Add a new accomodation to the platform";
           break;
+
+          case "AllAccommodation":
+          title = "All Accomodation";
+          metaDescription = "All accomodation in the platform";
+          break;
     }
 
     if (title) {
@@ -137,6 +143,7 @@ function App() {
       <Route path="/27" element={<DisplayAccommodation />} />
       <Route path="/add-event" element={<AddEventForm />} />
       <Route path="/add-accommodation" element={<AddAccomadationForm />} />
+      <Route path="/AllAccommodation" element={<AllAccommodation />} />
    
       
       </Routes>
