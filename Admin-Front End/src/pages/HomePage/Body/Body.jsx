@@ -127,9 +127,9 @@ const MainContent = () => {
         console.log('Fetching stats...'); // Debug log
         const [users, events, places, accommodations] = await Promise.all([
           axios.get('http://localhost:5000/api/auth/user-count'),
-          // axios.get('http://localhost:5000/api/events/count'),
-          // axios.get('http://localhost:5000/api/places/count'),
-          // axios.get('http://localhost:5000/api/accommodations/count')
+          axios.get('http://localhost:5000/api/getEventCount/'),
+          axios.get('http://localhost:5000/api/getPlaceCount'),
+          axios.get('http://localhost:5000/api/getAccommodationCount')
         ]);
   
         console.log('User response:', users.data); // Debug log
@@ -167,9 +167,9 @@ const MainContent = () => {
       <div className="dashboard-container">
         <div className="stats-grid">
           <StatCard title="Total Users" count={stats.users} color="#4CAF50" />
-          {/* <StatCard title="Pending Events" count={stats.events} color="#2196F3" />
+           <StatCard title="Pending Events" count={stats.events} color="#2196F3" />
           <StatCard title="Requested Places" count={stats.places} color="#FF9800" />
-          <StatCard title="Accommodation Requests" count={stats.accommodations} color="#9C27B0" /> */}
+          <StatCard title="Accommodation Requests" count={stats.accommodations} color="#9C27B0" />
         </div>
 
         <div className="charts-grid">
