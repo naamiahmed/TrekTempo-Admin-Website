@@ -2,8 +2,27 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './AllAccommodation.css';
 
+// Confirmation Dialog Component
+const ConfirmDialog = ({ isOpen, message, onConfirm, onCancel }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="confirm-overlay">
+      <div className="confirm-dialog">
+        <p>{message}</p>
+        <div className="confirm-buttons">
+          <button className="confirm-button" onClick={onConfirm}>Yes</button>
+          <button className="cancel-button" onClick={onCancel}>No</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const AllAccommodation = () => {
   const [accommodations, setAccommodations] = useState([]);
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
 
   useEffect(() => {
     const fetchAccommodations = async () => {
@@ -18,20 +37,23 @@ const AllAccommodation = () => {
     fetchAccommodations();
   }, []);
 
-  const handleDelete = async (id) => {
-    const confirmDelete = window.confirm('Are you sure you want to delete this accommodation?');
-    if (confirmDelete) {
-      try {
-        const response = await axios.delete(`http://localhost:5000/api/deleteAccommodation/${id}`);
-        if (response.data.success) {
-          setAccommodations(accommodations.filter(accommodation => accommodation._id !== id));
-        } else {
-          console.error('Error deleting accommodation:', response.data.message);
-        }
-      } catch (error) {
-        console.error('Error deleting accommodation:', error);
+  const handleDelete = (id) => {
+    setDeleteId(id);
+    setShowConfirm(true);
+  };
+
+  const confirmDelete = async () => {
+    try {
+      const response = await axios.delete(`http://localhost:5000/api/deleteAccommodation/${deleteId}`);
+      if (response.data.success) {
+        setAccommodations(accommodations.filter(accommodation => accommodation._id !== deleteId));
+      } else {
+        console.error('Error deleting accommodation:', response.data.message);
       }
+    } catch (error) {
+      console.error('Error deleting accommodation:', error);
     }
+    setShowConfirm(false);
   };
 
   return (
@@ -54,6 +76,12 @@ const AllAccommodation = () => {
           </div>
         ))}
       </div>
+      <ConfirmDialog
+        isOpen={showConfirm}
+        message="Are you sure you want to delete this accommodation?"
+        onConfirm={confirmDelete}
+        onCancel={() => setShowConfirm(false)}
+      />
     </div>
   );
 };

@@ -1,63 +1,90 @@
-/* Update ReqAccommodation.css */
-
+/* Card Container */
 .card-container1 {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
-    justify-content: center;
     padding: 20px;
 }
 
+/* Card */
 .card1 {
     border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    width: 800px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: bisque;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    overflow: hidden;
-}
-
-.accommodation-details {
-    flex: 1;
-    padding-right: 20px;
-}
-
-.image-container1 {
+    border-radius: 8px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
+    transition: transform 0.2s;
+}
+
+.card1:hover {
+    transform: translateY(-5px);
+}
+
+/* Image Styles */
+.image-container1 {
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 .Accommodation-image {
-    width: 250px;
-    height: 150px;
+    width: 100%;
+    height: 200px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
+/* Details Section */
+.accommodation-details {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.accommodation-details h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.accommodation-details p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.accommodation-details a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.accommodation-details a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
 .card-buttons1 {
     display: flex;
-    gap: 10px;
-    margin-top: auto;
-    flex-wrap: wrap;
+    gap: 18px;
     justify-content: center;
     width: 100%;
-    position: static;
+    margin-top: auto;
+    padding-top: 5px;
 }
 
 .accept-button, .delete-button {
-    padding: 10px 20px;
+    padding: 8px 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     color: white;
     cursor: pointer;
-    font-size: 16px;
-    text-align: center;
+    font-size: 14px;
+    flex: 1;
+    max-width: 120px;
+    transition: background-color 0.2s;
 }
 
 .delete-button {
@@ -76,7 +103,7 @@
     background-color: #45a049;
 }
 
-/* Modal styles */
+/* Modal Styles */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -92,10 +119,10 @@
 
 .modal {
     background-color: white;
-    padding: 20px;
+    padding: 25px;
     border-radius: 8px;
     min-width: 300px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .modal-content {
@@ -104,13 +131,18 @@
 
 .modal-content h2 {
     margin-bottom: 15px;
+    color: #333;
+}
+
+.modal-content p {
+    color: #666;
+    margin-bottom: 20px;
 }
 
 .modal-buttons {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 12px;
 }
 
 .modal-button {
@@ -118,6 +150,8 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 14px;
+    transition: opacity 0.2s;
 }
 
 .modal-button.confirm {
@@ -132,4 +166,15 @@
 
 .modal-button:hover {
     opacity: 0.9;
+}
+
+/* Title Styles */
+.title2-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title2-container h2 {
+    color: #333;
+    font-size: 1.8rem;
 }

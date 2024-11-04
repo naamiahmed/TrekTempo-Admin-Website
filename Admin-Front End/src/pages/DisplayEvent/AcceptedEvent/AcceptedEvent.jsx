@@ -2,10 +2,29 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './AcceptedEvent.css';
 
+// Confirmation Dialog Component
+const ConfirmDialog = ({ isOpen, message, onConfirm, onCancel }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="confirm-overlay">
+      <div className="confirm-dialog">
+        <p>{message}</p>
+        <div className="confirm-buttons">
+          <button className="confirm-button" onClick={onConfirm}>Yes</button>
+          <button className="cancel-button" onClick={onCancel}>No</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const AcceptedEvent = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/getAllAcceptedEvents')
@@ -24,10 +43,15 @@ const AcceptedEvent = () => {
   }, []);
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/api/deleteAcceptedEvent/${id}`)
+    setDeleteId(id);
+    setShowConfirm(true);
+  };
+
+  const confirmDelete = () => {
+    axios.delete(`http://localhost:5000/api/deleteAcceptedEvent/${deleteId}`)
       .then(response => {
         if (response.data.success) {
-          setData(data.filter(item => item._id !== id));
+          setData(data.filter(item => item._id !== deleteId));
         } else {
           setError(new Error(response.data.message));
         }
@@ -35,6 +59,7 @@ const AcceptedEvent = () => {
       .catch(error => {
         setError(error);
       });
+    setShowConfirm(false);
   };
 
   if (loading) {
@@ -67,6 +92,12 @@ const AcceptedEvent = () => {
           </div>
         ))}
       </div>
+      <ConfirmDialog
+        isOpen={showConfirm}
+        message="Are you sure you want to delete this event?"
+        onConfirm={confirmDelete}
+        onCancel={() => setShowConfirm(false)}
+      />
     </div>
   );
 };
