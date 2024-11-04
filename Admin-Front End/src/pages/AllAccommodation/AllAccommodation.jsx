@@ -18,6 +18,22 @@ const AllAccommodation = () => {
     fetchAccommodations();
   }, []);
 
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm('Are you sure you want to delete this accommodation?');
+    if (confirmDelete) {
+      try {
+        const response = await axios.delete(`http://localhost:5000/api/deleteAccommodation/${id}`);
+        if (response.data.success) {
+          setAccommodations(accommodations.filter(accommodation => accommodation._id !== id));
+        } else {
+          console.error('Error deleting accommodation:', response.data.message);
+        }
+      } catch (error) {
+        console.error('Error deleting accommodation:', error);
+      }
+    }
+  };
+
   return (
     <div className="all-accommodation-container">
       <h2>All Accommodations</h2>
@@ -34,6 +50,7 @@ const AllAccommodation = () => {
             {accommodation.images.length > 0 && (
               <img src={accommodation.images[0]} alt={accommodation.name} />
             )}
+            <button className="delete-button" onClick={() => handleDelete(accommodation._id)}>Delete</button>
           </div>
         ))}
       </div>

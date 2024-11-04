@@ -1,3 +1,8 @@
+h2 {
+  text-align: center;
+  font-size: 48px; /* Larger title size */
+}
+
 .all-accommodation-container {
   padding: 20px;
 }
@@ -5,18 +10,45 @@
 .accommodation-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 16px;
+  justify-content: center;
 }
 
 .accommodation-card {
+  background: linear-gradient(-89.82deg, #297f99, #3090ad 64.5%, #54c2e4);
   border: 1px solid #ccc;
-  padding: 20px;
   border-radius: 8px;
+  padding: 16px;
   width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden; /* Ensure that contents don't overflow */
+}
+
+.accommodation-card h3 {
+  margin: 0 0 8px;
+}
+
+.accommodation-card p {
+  margin: 0;
 }
 
 .accommodation-card img {
-  max-width: 100%;
-  height: auto;
+  width: 100%; /* Make the image fill the container */
+  height: auto; /* Maintain aspect ratio */
   border-radius: 8px;
+  margin-bottom: 16px; /* Add some spacing below the image */
+}
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
 }
