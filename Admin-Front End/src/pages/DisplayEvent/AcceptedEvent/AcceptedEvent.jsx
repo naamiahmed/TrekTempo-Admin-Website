@@ -47,7 +47,7 @@ const AcceptedEvent = () => {
 
   return (
     <div>
-      <h2>Accepted Event Details</h2>
+      <h2>TrackTempo Event Details</h2>
       <div className="card-container">
         {data.map((item) => (
           <div key={item._id} className="card">
