@@ -120,7 +120,7 @@ body{
   width: 80%;
   height: 170px;
   object-fit: contain;
-  border-radius: 20px;
+  border-radius: 35px !important;
   margin-top: 8px;
   transition: transform 0.3s ease; /* Add transition for hover effect */
 }
