@@ -70,7 +70,7 @@ const RequetedAccommodation = () => {
       <div className="flex-container">
         <h2>Accommodation</h2>
         <div className="listofthings">
-          <div onClick={() => navigate("#")}>View</div>
+          <div onClick={() => navigate("/AllAccommodation")}>View</div>
           <div onClick={() => navigate("/add-accommodation")}>Add</div>
           <div onClick={() => navigate("/27")}>Req</div>
         </div>
