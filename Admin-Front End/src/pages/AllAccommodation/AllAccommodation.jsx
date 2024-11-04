@@ -44,7 +44,7 @@ const AllAccommodation = () => {
 
   const confirmDelete = async () => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/deleteAccommodation/${deleteId}`);
+      const response = await axios.delete(`http://localhost:5000/api/deleteAcceptedAccommodation/${deleteId}`);
       if (response.data.success) {
         setAccommodations(accommodations.filter(accommodation => accommodation._id !== deleteId));
       } else {
