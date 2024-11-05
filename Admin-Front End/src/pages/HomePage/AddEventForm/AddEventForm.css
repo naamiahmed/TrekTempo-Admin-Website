@@ -6,7 +6,7 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: #f9f9f9;
+  background: linear-gradient(-89.82deg, #297f99, #3090ad 64.5%, #54c2e4);
 }
 
 .add-event-form-container h2 {

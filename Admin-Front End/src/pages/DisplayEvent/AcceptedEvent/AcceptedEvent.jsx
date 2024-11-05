@@ -25,6 +25,7 @@ const AcceptedEvent = () => {
   const [error, setError] = useState(null);
   const [showConfirm, setShowConfirm] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
+  const [expandedDescriptions, setExpandedDescriptions] = useState({});
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/getAllAcceptedEvents')
@@ -62,6 +63,13 @@ const AcceptedEvent = () => {
     setShowConfirm(false);
   };
 
+  const toggleDescription = (id) => {
+    setExpandedDescriptions(prevState => ({
+      ...prevState,
+      [id]: !prevState[id]
+    }));
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -73,17 +81,25 @@ const AcceptedEvent = () => {
   return (
     <div>
       <h2>TrackTempo Event Details</h2>
-      <div className="card-container">
+      <div className="view-event-card-container">
         {data.map((item) => (
           <div key={item._id} className="card">
             <h1>{item.title}</h1>
-            <p><strong>Description:</strong> {item.description}</p>
+            <p>
+              <strong>Description:</strong> 
+              {expandedDescriptions[item._id] ? item.description : `${item.description.slice(0, 100)}...`}
+              {item.description.length > 100 && (
+                <span className="more-link" onClick={() => toggleDescription(item._id)}>
+                  {expandedDescriptions[item._id] ? ' less' : ' more'}
+                </span>
+              )}
+            </p>
             <p><strong>Phone Number:</strong> {item.phone}</p>
             <p><strong>District:</strong> {item.district}</p>
             <p><strong>Place Name:</strong> {item.place}</p>
             <p><strong>Location Link:</strong> <a href={item.location} target="_blank" rel="noopener noreferrer">{item.location}</a></p>
             <p><strong>Date:</strong> {new Date(item.date).toLocaleDateString()}</p>
-            <div className="image-container1">
+            <div className="image-containerAB">
               <img src={item.imageUrl} alt={item.title} className="event-image" />
             </div>
             <div className="card-buttons">
