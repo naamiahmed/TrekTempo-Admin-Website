@@ -45,9 +45,13 @@ const DisplayAccommodation = () => {
     }
   };
 
-  const handleAccept = async (id) => {
+  const handleAccept = async (id, userId) => {  // Add userId parameter
     try {
-      const response = await axios.post(`http://localhost:5000/api/moveAccommodationToAccepted/${id}`);
+      const response = await axios.post(
+        `http://localhost:5000/api/moveAccommodationToAccepted/${id}`,
+        { userId: userId }  // Add request body with userId
+      );
+      
       if (response.status === 200) {
         getAllAccommodations();
       } else {
@@ -112,7 +116,7 @@ const DisplayAccommodation = () => {
               </button>
               <button
                 className="req-accomodation-accept-button"
-                onClick={() => handleAccept(item._id)}
+                onClick={() => handleAccept(item._id, item.userId)}  // Add userId parameter
               >
                 Accept
               </button>
