@@ -1,24 +1,24 @@
 /* Card Container */
 .req-accomodation-card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    /* gap: 15px; */
-    padding: 15px;
+    display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 20px;
     
 }
 
 /* Card */
 .req-accomodation-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 15px;
-    width: 300px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s;
     background: linear-gradient(-89.82deg, #297f99, #3090ad 64.5%, #54c2e4);
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    padding: 20px;
+    width: 320px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .req-accomodation-card:hover {
