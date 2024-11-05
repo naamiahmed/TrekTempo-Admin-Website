@@ -15,7 +15,7 @@ body{
   flex: 1;
   padding: 20px;
   background-color: #f9f9f9;
-  margin: 70px 8px 0 30px; /* Adjust margins to avoid overflow */
+  margin: 70px 8px 0 3%; /* Adjust margins to avoid overflow */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background: linear-gradient(89.76deg, rgba(213, 241, 251, 0.5), rgba(148, 220, 242, 0.5) 36.5%, rgba(213, 241, 251, 0.5));
@@ -33,8 +33,8 @@ body{
   flex-direction: row;
   align-items: center;
   background: linear-gradient(89.76deg, #2d8dab, #81c1d5 36.5%, #285a6d);
-  width: 100%; /* Adjusted width */
-  height: 50px; /* Reduced height */
+  width: 95%; /* Adjusted width */
+  height: 90px; /* Reduced height */
   margin: 10px;
   border-radius: 10px;
   text-align: left; /* Align text to the left */
@@ -86,15 +86,22 @@ body{
 
 .listofthings div {
   cursor: pointer; /* Change cursor to pointer */
+  padding: 5px 10px; /* Add padding for better click area */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add transition for hover effect */
+  background-color: #f9f9f9;
+  margin: 5px 0;
 }
 
 .listofthings div:hover {
   text-decoration: underline; /* Add underline on hover */
+  background-color: rgba(255, 255, 255, 0.1); /* Add background color on hover */
+  color: #bfe4f0; /* Change text color on hover */
 }
 
 .Sidebar {
-  width: 20%;
-  min-width: 200px; /* Set a minimum width */
+  width: 21%;
+  min-width: 200px;
   background: linear-gradient(-89.82deg, #2f91b0, #206175 64.5%, #143d4a);
   color: white;
   display: flex;
@@ -105,17 +112,23 @@ body{
   position: absolute;
   left: 0;
   z-index: 0;
+  padding: 20px 10px; /* Add padding for better spacing */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
 }
 
-.sidebar-image{
+.sidebar-image {
   width: 80%;
   height: 170px;
-  object-fit: cover;
-  border-radius: 10px 10px 10px 10px;
+  object-fit: contain;
+  border-radius: 35px !important;
   margin-top: 8px;
+  transition: transform 0.3s ease; /* Add transition for hover effect */
+}
+.sidebar-image:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
-.sidebar-text{
+.sidebar-text {
   font-size: 24px; /* Increase font size */
   font-weight: bold; /* Make the text bold */
   color: #ffffff; /* Set text color to white */
@@ -125,14 +138,20 @@ body{
   letter-spacing: 2px; /* Add some letter spacing */
   font-family: 'Poppins', sans-serif;
   letter-spacing: calc(0.1em + 0.1vw);
-  
+  transition: color 0.3s ease; /* Add transition for hover effect */
 }
+
+.sidebar-text:hover {
+  color: #bfe4f0; /* Change color on hover */
+}
+
 
 .horizontal-line {
   width: 80%; /* Adjust the width as needed */
   border: 1px solid white; /* Set the color and thickness of the line */
-  /* margin: 10px 0;  */
+  margin: 20px 0; /* Add margin for spacing */
 }
+
 
 
 .CenteredContainer {
@@ -142,15 +161,25 @@ body{
   justify-content: center;
   position: absolute;
   top: 6%;
-  left: 30%;
+  left: calc(30% + 200px); /* Adjust left position to account for sidebar width */
   transform: translate(-50%, -50%);
-  /* background: linear-gradient(-89.82deg, #0e617a, #30a1c4 64.5%, #6abdd6); */
   padding: 20px;
   border-radius: 10px;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   text-align: center;
   width: 200px;
   height: 20px;
+}
+
+@media (max-width: 768px) {
+  .CenteredContainer {
+    left: calc(25% + 200px); /* Adjust left position for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .CenteredContainer {
+    left: calc(30% + 200px); /* Adjust left position for very small screens */
+  }
 }
 
 .centered-image {
@@ -219,6 +248,41 @@ body{
   margin: 0 0 20px;
   color: #333;
   font-size: 1.2rem;
+}
+
+@media (min-width: 1287px) {
+  .MainContent{
+    padding-left: 4%;
+  }
+}
+
+@media (max-width: 1234px) {
+  .Placecard {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+  }
+
+  .card-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  .flex-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .listofthings {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .listofthings div {
+    margin-bottom: 5px;
+  }
 }
 
 @media (max-width: 768px) {

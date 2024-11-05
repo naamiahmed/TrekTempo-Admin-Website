@@ -1,26 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { BarChart, Bar, PieChart, Pie, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-// import { Fade } from "react-reveal";
+import { BarChart, Bar, PieChart, Pie, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell } from 'recharts';
 import "./Body.css";
-
-// NavigationBar Component (commented out but preserved)
-/*
-const NavigationBar = () => {
-  return (
-    <header className="navbar">
-      <div className="logo-section">
-        <img src="/AppIcon.png" alt="Logo" className="logo-icon" />
-        <h1 className="App-name">TrackTempo</h1>
-      </div>
-      <div className="user-section">
-        <img src="/Notifications.png" alt="Notifications" className="icon" />
-      </div>
-    </header>
-  );
-};
-*/
 
 // AddPlaces Component
 const AddPlaces = () => {
@@ -101,7 +83,7 @@ const CenteredContainer = () => {
 
 // StatCard Component
 const StatCard = ({ title, count, color }) => (
-  <div className="stat-card" style={{ backgroundColor: color }}>
+  <div className="stat-card" style={{ background: `linear-gradient(45deg, ${color[0]}, ${color[1]})` }}>
     <div className="stat-info">
       <h3>{title}</h3>
       <p>{count}</p>
@@ -118,13 +100,12 @@ const MainContent = () => {
     accommodations: 0
   });
 
-  // In MainContent component, update the fetchStats function:
   const [chartData, setChartData] = useState([]);
   
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        console.log('Fetching stats...'); // Debug log
+        console.log('Fetching stats...');
         const [users, events, places, accommodations] = await Promise.all([
           axios.get('http://localhost:5000/api/auth/user-count'),
           axios.get('http://localhost:5000/api/getEventCount/'),
@@ -132,7 +113,7 @@ const MainContent = () => {
           axios.get('http://localhost:5000/api/getAccommodationCount')
         ]);
   
-        console.log('User response:', users.data); // Debug log
+        console.log('User response:', users.data);
   
         setStats({
           users: users.data.count || 0,
@@ -162,14 +143,21 @@ const MainContent = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const barColors = [
+    ['#eb5900', '#923700'], 
+  ['#01a6f3', '#015277'], 
+  ['#f00000', '#8a0303'], 
+  ['#00c898', '#045642']  
+  ];
+
   return (
     <div className="MainContent">
       <div className="dashboard-container">
         <div className="stats-grid">
-          <StatCard title="Total Users" count={stats.users} color="#4CAF50" />
-           <StatCard title="Pending Events" count={stats.events} color="#2196F3" />
-          <StatCard title="Requested Places" count={stats.places} color="#FF9800" />
-          <StatCard title="Accommodation Requests" count={stats.accommodations} color="#9C27B0" />
+          <StatCard title="Total Users" count={stats.users} color={barColors[0]} />
+          <StatCard title="Requested Events" count={stats.events} color={barColors[1]} />
+          <StatCard title="Requested Places" count={stats.places} color={barColors[2]} />
+          <StatCard title="Requested Accommodation" count={stats.accommodations} color={barColors[3]} />
         </div>
 
         <div className="charts-grid">
@@ -177,12 +165,24 @@ const MainContent = () => {
             <h3>Overview Statistics</h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={chartData}>
+                <defs>
+                  {barColors.map((colors, index) => (
+                    <linearGradient id={`colorUv${index}`} x1="0" y1="0" x2="0" y2="1" key={index}>
+                      <stop offset="5%" stopColor={colors[0]} stopOpacity={0.8}/>
+                      <stop offset="95%" stopColor={colors[1]} stopOpacity={0.8}/>
+                    </linearGradient>
+                  ))}
+                </defs>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="value" fill="#8884d8" />
+                <Bar dataKey="value">
+                  {chartData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={`url(#colorUv${index})`} />
+                  ))}
+                </Bar>
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -191,6 +191,14 @@ const MainContent = () => {
             <h3>Request Distribution</h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
+                <defs>
+                  {barColors.map((colors, index) => (
+                    <linearGradient id={`colorPv${index}`} x1="0" y1="0" x2="0" y2="1" key={index}>
+                      <stop offset="5%" stopColor={colors[0]} stopOpacity={0.8}/>
+                      <stop offset="95%" stopColor={colors[1]} stopOpacity={0.8}/>
+                    </linearGradient>
+                  ))}
+                </defs>
                 <Pie
                   data={chartData}
                   dataKey="value"
@@ -200,7 +208,11 @@ const MainContent = () => {
                   outerRadius={100}
                   fill="#8884d8"
                   label
-                />
+                >
+                  {chartData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={`url(#colorPv${index})`} />
+                  ))}
+                </Pie>
                 <Tooltip />
                 <Legend />
               </PieChart>
@@ -215,18 +227,16 @@ const MainContent = () => {
 // Main Body Component that renders all sections
 const Body = () => {
   return (
-    // <Fade>
-      <div className="Body">
-        <Sidebar />
-        <div style={{ marginTop: "280px" }}>
-          <AddPlaces />
-          <AddEvents />
-          <RequetedAccommodation />
-        </div>
-        <CenteredContainer />
-        <MainContent />
+    <div className="Body">
+      <Sidebar />
+      <div style={{ marginTop: "280px" }}>
+        <AddPlaces />
+        <AddEvents />
+        <RequetedAccommodation />
       </div>
-    // </Fade>
+      <CenteredContainer />
+      <MainContent />
+    </div>
   );
 };
 

@@ -10,7 +10,6 @@ import Shop from "./pages/ForgotPwd/Shop";
 import Root1 from "./pages/ForgotPwd/Root1";
 import Root from "./pages/ForgotPwd/Root";
 import Homepage1 from "./pages/ForgotPwd/Homepage1";
-import Homepage2 from "./pages/SignIn/Homepage2";
 import Body from "./pages/HomePage/Body/Body";
 import AddPlaceForm from "./pages/HomePage/Place/AddPlaceForm/AddPlaceForm";
 import DataDisplay from "./pages/DisplayEvent/DisplayEvent";
@@ -23,6 +22,7 @@ import AddEventForm from "./pages/HomePage/AddEventForm/AddEventForm";
 import AddAccomadationForm from"./pages/HomePage/AddAccomadationForm/AddAccommodationForm";
 
 import AllAccommodation from "./pages/AllAccommodation/AllAccommodation";
+import SignInPage from "./pages/SignIn/SignInPage"
 
 
 
@@ -133,7 +133,8 @@ function App() {
       <Route path="/17" element={<Root />} />
 
       <Route path="/12" element={<Homepage1 />} />
-      <Route path="/" element={<Homepage2 />} />
+      {/* <Route path="/" element={<Homepage2 />} /> */}
+      <Route path="/" element={<SignInPage/>} />
       <Route path="/20" element={<Body />} />
       <Route path="/21" element={<RequestedPlaces />} />
       <Route path="/22" element={<DataDisplay />} />
