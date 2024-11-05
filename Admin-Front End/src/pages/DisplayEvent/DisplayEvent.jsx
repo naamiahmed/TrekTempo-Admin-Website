@@ -92,13 +92,10 @@ const DataDisplay = () => {
 
   return (
     <div>
-      <button className="add-button1" onClick={() => navigate("/23")}>
-        Next
-      </button>
-      <h2>Event Details</h2>
-      <div className="card-container1">
+      <h2>Requested Event Details</h2>
+      <div className="req-event-card-container">
         {data.map((item) => (
-          <div key={item._id} className="card1">
+          <div key={item._id} className="req-event-card">
             <h2>{item.title}</h2>
             <p><strong>Description:</strong> {item.description}</p>
             <p><strong>Phone Number:</strong> {item.phone}</p>
@@ -113,22 +110,22 @@ const DataDisplay = () => {
             <p>
               <strong>Date:</strong> {new Date(item.date).toLocaleDateString()}
             </p>
-            <div className="image-container1">
+            <div className="req-event-image-container">
               <img
                 src={item.imageUrl}
                 alt={item.title}
-                className="event-image"
+                className="req-event-image"
               />
             </div>
-            <div className="card-buttons1">
+            <div className="req-event-card-buttons">
               <button
-                className="delete-button"
+                className="req-event-delete-button"
                 onClick={() => handleDelete(item._id)}
               >
                 Delete
               </button>
               <button
-                className="accept-button"
+                className="req-event-accept-button"
                 onClick={() => handleAccept(item._id)}
               >
                 Accept

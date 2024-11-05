@@ -102,8 +102,8 @@ const AddEventForm = () => {
   };
 
   return (
-    <div className="add-event-form-container">
-      <h2>Add New Event</h2>
+    <><h2>Add New Event</h2><div className="add-event-form-container">
+
       <form onSubmit={handleSubmit}>
         <div className="form-row">
           <label>Title:</label>
@@ -112,8 +112,7 @@ const AddEventForm = () => {
             name="title"
             value={formData.title}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.title && <p className="error-message">{errors.title}</p>}
         </div>
 
@@ -123,8 +122,7 @@ const AddEventForm = () => {
             name="description"
             value={formData.description}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.description && <p className="error-message">{errors.description}</p>}
         </div>
 
@@ -135,8 +133,7 @@ const AddEventForm = () => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.phone && <p className="error-message">{errors.phone}</p>}
         </div>
 
@@ -147,8 +144,7 @@ const AddEventForm = () => {
             name="district"
             value={formData.district}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.district && <p className="error-message">{errors.district}</p>}
         </div>
 
@@ -159,8 +155,7 @@ const AddEventForm = () => {
             name="place"
             value={formData.place}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.place && <p className="error-message">{errors.place}</p>}
         </div>
 
@@ -171,8 +166,7 @@ const AddEventForm = () => {
             name="date"
             value={formData.date}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.date && <p className="error-message">{errors.date}</p>}
         </div>
 
@@ -183,8 +177,7 @@ const AddEventForm = () => {
             name="location"
             value={formData.location}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.location && <p className="error-message">{errors.location}</p>}
         </div>
 
@@ -193,8 +186,7 @@ const AddEventForm = () => {
           <input
             type="file"
             name="image"
-            onChange={handleFileChange}
-          />
+            onChange={handleFileChange} />
         </div>
 
         <button type="submit">Submit</button>
@@ -208,7 +200,7 @@ const AddEventForm = () => {
           </div>
         </div>
       )}
-    </div>
+    </div></>
   );
 };
 

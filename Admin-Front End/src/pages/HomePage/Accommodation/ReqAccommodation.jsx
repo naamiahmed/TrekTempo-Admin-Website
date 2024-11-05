@@ -68,14 +68,15 @@ const DisplayAccommodation = () => {
 
   return (
     <div>
+      <h2>Requested Accommodations</h2>
       <div className="title2-container" style={{ margin: 0 }}>
-        <h2>Requested Accommodations</h2>
+        
       </div>
-
-      <div className="card-container1">
+  
+      <div className="req-accomodation-card-container">
         {data.map((item) => (
-          <div key={item._id} className="card1">
-            <div className="accommodation-details">
+          <div key={item._id} className="req-accomodation-card">
+            <div className="req-accommodation-details">
               <h3><strong>Name:</strong> {item.name}</h3>
               <p><strong>Description:</strong> {item.description}</p>
               <p><strong>District:</strong> {item.district}</p>
@@ -87,25 +88,8 @@ const DisplayAccommodation = () => {
                   {item.locationLink}
                 </a>
               </p>
-              <div className="card-buttons1">
-                <button
-                  className="delete-button"
-                  onClick={() => {
-                    setDeleteId(item._id);
-                    setShowConfirmModal(true);
-                  }}
-                >
-                  Delete
-                </button>
-                <button
-                  className="accept-button"
-                  onClick={() => handleAccept(item._id)}
-                >
-                  Accept
-                </button>
-              </div>
             </div>
-            <div className="image-container1">
+            <div className="req-accomodation-image-container">
               {item.images && item.images.map((image, index) => (
                 <div key={index} className="image-wrapper">
                   <img
@@ -116,10 +100,27 @@ const DisplayAccommodation = () => {
                 </div>
               ))}
             </div>
+            <div className="req-accomodation-card-buttons">
+              <button
+                className="req-accomodation-delete-button"
+                onClick={() => {
+                  setDeleteId(item._id);
+                  setShowConfirmModal(true);
+                }}
+              >
+                Delete
+              </button>
+              <button
+                className="req-accomodation-accept-button"
+                onClick={() => handleAccept(item._id)}
+              >
+                Accept
+              </button>
+            </div>
           </div>
         ))}
       </div>
-
+  
       {showConfirmModal && (
         <div className="modal-overlay">
           <div className="modal">

@@ -3,7 +3,7 @@ h2 {
   font-size: 48px; /* Larger title size */
 }
 
-.card-container {
+.view-event-card-container {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -29,19 +29,14 @@ h2 {
   margin: 0;
 }
 
-.image-container1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%; /* Ensure the container takes the full width of the card */
-  height: 150px; /* Adjust height as needed */
-  overflow: hidden; /* Hide overflow to maintain uniform size */
-  margin-bottom: 16px; /* Add some spacing below the image */
+.image-containerAB {
+  margin-bottom: 16px; 
+  overflow: hidden; 
 }
 
 .event-image {
-  width: 100%; /* Make the image fill the container */
-  height: auto; /* Maintain aspect ratio */
+  width: 100%; 
+  height: auto; 
   border-radius: 8px;
 }
 
@@ -141,5 +136,11 @@ h2 {
   border: none;
   padding: 8px 16px;
   border-radius: 4px;
+  cursor: pointer;
+}
+
+.more-link {
+  color: blue;
+  text-decoration: underline;
   cursor: pointer;
 }

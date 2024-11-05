@@ -88,8 +88,8 @@ const AddAccommodationForm = () => {
   };
 
   return (
-    <div className="add-accommodation-form-container">
-      <h2>Add New Accommodation</h2>
+    <><h2>Add New Accommodation</h2><div className="add-accommodation-form-container">
+
       <form onSubmit={handleSubmit}>
         <div className="form-row">
           <label>Name:</label>
@@ -98,8 +98,7 @@ const AddAccommodationForm = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.name && <p className="error-message">{errors.name}</p>}
         </div>
 
@@ -109,8 +108,7 @@ const AddAccommodationForm = () => {
             name="description"
             value={formData.description}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.description && <p className="error-message">{errors.description}</p>}
         </div>
 
@@ -122,8 +120,7 @@ const AddAccommodationForm = () => {
             value={formData.phone}
             onChange={handleChange}
             pattern="[0-9]{10}"
-            required
-          />
+            required />
           {errors.phone && <p className="error-message">{errors.phone}</p>}
         </div>
 
@@ -134,8 +131,7 @@ const AddAccommodationForm = () => {
             name="district"
             value={formData.district}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.district && <p className="error-message">{errors.district}</p>}
         </div>
 
@@ -146,8 +142,7 @@ const AddAccommodationForm = () => {
             name="place"
             value={formData.place}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.place && <p className="error-message">{errors.place}</p>}
         </div>
 
@@ -175,8 +170,7 @@ const AddAccommodationForm = () => {
             value={formData.locationLink}
             onChange={handleChange}
             placeholder="https://maps.google.com/..."
-            required
-          />
+            required />
           {errors.locationLink && <p className="error-message">{errors.locationLink}</p>}
         </div>
 
@@ -187,8 +181,7 @@ const AddAccommodationForm = () => {
             name="dayCost"
             value={formData.dayCost}
             onChange={handleChange}
-            required
-          />
+            required />
           {errors.dayCost && <p className="error-message">{errors.dayCost}</p>}
         </div>
 
@@ -199,8 +192,7 @@ const AddAccommodationForm = () => {
             name="image"
             onChange={handleChange}
             accept="image/png, image/jpeg"
-            required
-          />
+            required />
           {errors.image && <p className="error-message">{errors.image}</p>}
         </div>
 
@@ -215,7 +207,7 @@ const AddAccommodationForm = () => {
           </div>
         </div>
       )}
-    </div>
+    </div></>
   );
 };
 
