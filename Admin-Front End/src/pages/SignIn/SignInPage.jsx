@@ -69,7 +69,7 @@ const SignInPage = () => {
                     <button type="submit" data-testid="submit-button">SIGN IN</button>
                 </form>
                 <p className="signup-text">
-                    Don't you have any account already? <a href="#">HELP</a>
+                    Don't you have any account already? <a href="mailto:tracktempo.official@gmail.com">HELP</a>
                 </p>
             </div>
             <div className="image-container1">
