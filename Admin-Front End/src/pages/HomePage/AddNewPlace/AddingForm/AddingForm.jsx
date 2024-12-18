@@ -84,7 +84,7 @@ const AddingForm = () => {
     if (formData.image3) formDataToSend.append("images", formData.image3);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/createPlace", formDataToSend, {
+      const response = await axios.post("https://trektempo.onrender.com/api/createPlace", formDataToSend, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

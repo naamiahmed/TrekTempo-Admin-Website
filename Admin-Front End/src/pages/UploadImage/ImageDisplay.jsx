@@ -7,7 +7,7 @@ const DisplayImage = ({ imageId }) => {
     useEffect(() => {
         const fetchImage = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/image/${imageId}`, {
+                const response = await axios.get(`https://trektempo.onrender.com/image/${imageId}`, {
                     responseType: 'blob', // important to receive binary data
                 });
 

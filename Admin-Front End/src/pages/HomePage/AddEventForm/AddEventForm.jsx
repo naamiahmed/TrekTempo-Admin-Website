@@ -72,7 +72,7 @@ const AddEventForm = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/api/createAcceptedEvent", formDataToSend, {
+      const response = await axios.post("https://trektempo.onrender.com/api/createAcceptedEvent", formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

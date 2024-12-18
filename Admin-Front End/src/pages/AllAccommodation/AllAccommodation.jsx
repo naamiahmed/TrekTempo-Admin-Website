@@ -27,7 +27,7 @@ const AllAccommodation = () => {
   useEffect(() => {
     const fetchAccommodations = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/getAllAccommodations');
+        const response = await axios.get('https://trektempo.onrender.com/api/getAllAccommodations');
         setAccommodations(response.data.accommodations);
       } catch (error) {
         console.error('Error fetching accommodations:', error);
@@ -44,7 +44,7 @@ const AllAccommodation = () => {
 
   const confirmDelete = async () => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/deleteAcceptedAccommodation/${deleteId}`);
+      const response = await axios.delete(`https://trektempo.onrender.com/api/deleteAcceptedAccommodation/${deleteId}`);
       if (response.data.success) {
         setAccommodations(accommodations.filter(accommodation => accommodation._id !== deleteId));
       } else {

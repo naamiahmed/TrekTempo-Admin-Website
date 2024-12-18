@@ -10,7 +10,7 @@ const RequestedPlaces = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/getAllNewPlaces')
+        axios.get('https://trektempo.onrender.com/api/getAllNewPlaces')
           .then(response => {
             if (response.data.success) {
               setPlaces(response.data.places);
@@ -27,7 +27,7 @@ const RequestedPlaces = () => {
     }, []);
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5000/api/deleteRequestPlaces/${id}`)
+        axios.delete(`https://trektempo.onrender.com/api/deleteRequestPlaces/${id}`)
           .then(response => {
             if (response.data.success) {
               setPlaces(places.filter(place => place._id !== id));

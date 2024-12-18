@@ -35,7 +35,7 @@ const DataDisplay = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/getAllEvents");
+      const response = await axios.get("https://trektempo.onrender.com/api/getAllEvents");
       setData(response.data.events);
       setLoading(false);
     } catch (error) {
@@ -59,7 +59,7 @@ const DataDisplay = () => {
 
   const confirmDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/deleteEvent/${selectedId}`);
+      await axios.delete(`https://trektempo.onrender.com/api/deleteEvent/${selectedId}`);
       setData(data.filter((item) => item._id !== selectedId));
     } catch (error) {
       console.error("Error deleting event:", error);
@@ -70,7 +70,7 @@ const DataDisplay = () => {
 
   const confirmAccept = async () => {
     try {
-      await axios.post(`http://localhost:5000/api/moveEventToAccepted/${selectedId}`);
+      await axios.post(`https://trektempo.onrender.com/api/moveEventToAccepted/${selectedId}`);
       setData(data.filter((item) => item._id !== selectedId));
     } catch (error) {
       console.error("Error accepting event:", error);

@@ -107,10 +107,10 @@ const MainContent = () => {
       try {
         console.log('Fetching stats...');
         const [users, events, places, accommodations] = await Promise.all([
-          axios.get('http://localhost:5000/api/auth/user-count'),
-          axios.get('http://localhost:5000/api/getEventCount/'),
-          axios.get('http://localhost:5000/api/getPlaceCount'),
-          axios.get('http://localhost:5000/api/getAccommodationCount')
+          axios.get('https://trektempo.onrender.com/api/auth/user-count'),
+          axios.get('https://trektempo.onrender.com/api/getEventCount/'),
+          axios.get('https://trektempo.onrender.com/api/getPlaceCount'),
+          axios.get('https://trektempo.onrender.com/api/getAccommodationCount')
         ]);
   
         console.log('User response:', users.data);

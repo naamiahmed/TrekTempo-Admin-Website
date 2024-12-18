@@ -123,7 +123,7 @@ const AddPlaceForm = () => {
     });
 
     try {
-      const response = await axios.post("http://localhost:5000/api/createPlace", formDataToSend, {
+      const response = await axios.post("https://trektempo.onrender.com/api/createPlace", formDataToSend, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -131,7 +131,7 @@ const AddPlaceForm = () => {
       console.log("Form submitted successfully:", response.data);
 
       // Delete the place from the database using the id
-      await axios.delete(`http://localhost:5000/api/deleteRequestPlaces/${formData.id}`);
+      await axios.delete(`https://trektempo.onrender.com/api/deleteRequestPlaces/${formData.id}`);
 
       // Optionally reset the form after submission
       setFormData({

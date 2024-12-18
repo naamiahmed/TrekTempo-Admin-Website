@@ -28,7 +28,7 @@ const AcceptedEvent = () => {
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/getAllAcceptedEvents')
+    axios.get('https://trektempo.onrender.com/api/getAllAcceptedEvents')
       .then(response => {
         if (response.data.success) {
           setData(response.data.events);
@@ -49,7 +49,7 @@ const AcceptedEvent = () => {
   };
 
   const confirmDelete = () => {
-    axios.delete(`http://localhost:5000/api/deleteAcceptedEvent/${deleteId}`)
+    axios.delete(`https://trektempo.onrender.com/api/deleteAcceptedEvent/${deleteId}`)
       .then(response => {
         if (response.data.success) {
           setData(data.filter(item => item._id !== deleteId));

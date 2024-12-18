@@ -63,7 +63,7 @@ const AddAccommodationForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/createAccommodation",
+        "https://trektempo.onrender.com/api/createAccommodation",
         formDataToSend,
         {
           headers: { "Content-Type": "multipart/form-data" },

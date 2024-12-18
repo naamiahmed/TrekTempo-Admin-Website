@@ -15,7 +15,7 @@ const DisplayAccommodation = () => {
 
   const getAllAccommodations = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/getAllReqAccommodations");
+      const response = await axios.get("https://trektempo.onrender.com/api/getAllReqAccommodations");
       if (response.data.success) {
         setData(response.data.accommodations);
       } else {
@@ -31,7 +31,7 @@ const DisplayAccommodation = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/deleteAccommodation/${deleteId}`);
+      const response = await axios.delete(`https://trektempo.onrender.com/api/deleteAccommodation/${deleteId}`);
       if (response.data.success) {
         setData(data.filter((item) => item._id !== deleteId));
       } else {
@@ -48,7 +48,7 @@ const DisplayAccommodation = () => {
   const handleAccept = async (id, userId) => {  // Add userId parameter
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/moveAccommodationToAccepted/${id}`,
+        `https://trektempo.onrender.com/api/moveAccommodationToAccepted/${id}`,
         { userId: userId }  // Add request body with userId
       );
       
